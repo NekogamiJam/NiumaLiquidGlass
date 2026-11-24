@@ -210,7 +210,10 @@ class AppPrefs(
             "",
         ) { soundOnKeyPress.getValue() && useCustomSoundEffect.getValue() }
 
-        val vibrateOnKeyPress = switch(R.string.vibrate_on_key_press, VIBRATE_ON_KEY_PRESS, false)
+        // New installs default ON. An explicitly saved value always wins (no migration write),
+        // so an old user who turned vibration off keeps it off; only users who never set it
+        // flip to ON on upgrade.
+        val vibrateOnKeyPress = switch(R.string.vibrate_on_key_press, VIBRATE_ON_KEY_PRESS, true)
         val vibrateOnKeyRelease = switch(
             R.string.vibrate_on_key_release,
             VIBRATE_ON_KEY_RELEASE,
@@ -375,7 +378,8 @@ class AppPrefs(
             const val LAST_BACKGROUND_SYNC_TIME = "last_background_sync_time"
         }
 
-        val dataStorageMode = enum(R.string.data_storage_mode, DATA_STORAGE_MODE, DataStorageMode.EXTERNAL_SYNC)
+        // Bundled Niuma works immediately in its isolated app directory; external sync stays opt-in.
+        val dataStorageMode = enum(R.string.data_storage_mode, DATA_STORAGE_MODE, DataStorageMode.APP_STORAGE)
         val externalRimeTreeUri = string(EXTERNAL_RIME_TREE_URI, "")
         val periodicBackgroundSync = bool(PERIODIC_BACKGROUND_SYNC, false)
         val periodicBackgroundSyncInterval = int(PERIODIC_BACKGROUND_SYNC_INTERVAL, 30)
@@ -395,7 +399,8 @@ class AppPrefs(
             const val CLIPBOARD_SUGGESTION_TIMEOUT = "clipboard_suggestion_timeout"
             const val CLIPBOARD_RETURN_AFTER_PASTE = "clipboard_return_after_paste"
         }
-        val clipboardListening = switch(R.string.clipboard_listening, CLIPBOARD_LISTENING, true)
+        // Clipboard history is opt-in; explicit paste remains available without a background listener.
+        val clipboardListening = switch(R.string.clipboard_listening, CLIPBOARD_LISTENING, false)
         val clipboardLimit = int(
             R.string.clipboard_limit,
             CLIPBOARD_LIMIT,

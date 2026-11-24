@@ -1,0 +1,54 @@
+{
+  "repo": "lukeslp/chime-sms-2m",
+  "revision": "05bca75df9b272da7d9c31dfcda459b8140925f3",
+  "files": [
+    {
+      "name": "Apache-2.0.txt",
+      "bytes": 10174,
+      "sha256": "0d542e0c8804e39aa7f37eb00da5a762149dc682d7829451287e11b938e94594",
+      "url": "https://huggingface.co/lukeslp/chime-sms-2m/resolve/05bca75df9b272da7d9c31dfcda459b8140925f3/Apache-2.0.txt"
+    },
+    {
+      "name": "LICENSE.md",
+      "bytes": 719,
+      "sha256": "9f3e30a0522f6fc3625ae0408de5b4cffd5ded9b77af381fb002930c1498353d",
+      "url": "https://huggingface.co/lukeslp/chime-sms-2m/resolve/05bca75df9b272da7d9c31dfcda459b8140925f3/LICENSE.md"
+    },
+    {
+      "name": "NOTICE.txt",
+      "bytes": 3217,
+      "sha256": "73bfc707af2d7046c3f56dbaf2ea7a0048c5bb63b407cd8ebd61d42f3610d281",
+      "url": "https://huggingface.co/lukeslp/chime-sms-2m/resolve/05bca75df9b272da7d9c31dfcda459b8140925f3/NOTICE.txt"
+    },
+    {
+      "name": "README.md",
+      "bytes": 13477,
+      "sha256": "aba245fd3eb8556e6e6c1a6a5db5e65136b50f781a65460ee93e284531c7dac2",
+      "url": "https://huggingface.co/lukeslp/chime-sms-2m/resolve/05bca75df9b272da7d9c31dfcda459b8140925f3/README.md"
+    },
+    {
+      "name": "cifg_int8.bin",
+      "bytes": 2221879,
+      "sha256": "3255dbeaf6e7fc0922afdca42ef751a22e3ad28903ab4acc9eb0022b9a704318",
+      "url": "https://huggingface.co/lukeslp/chime-sms-2m/resolve/05bca75df9b272da7d9c31dfcda459b8140925f3/cifg_int8.bin"
+    },
+    {
+      "name": "config.json",
+      "bytes": 931,
+      "sha256": "dd7d186b6cd07c2639de0f413ac48d765f6a4415510ad520dd70fd1033985dcf",
+      "url": "https://huggingface.co/lukeslp/chime-sms-2m/resolve/05bca75df9b272da7d9c31dfcda459b8140925f3/config.json"
+    },
+    {
+      "name": "inference.py",
+      "bytes": 7130,
+      "sha256": "884d5b399db53c17694c8ed595f7a1e5d692df4d4fe95a6b5c17e22422db7008",
+      "url": "https://huggingface.co/lukeslp/chime-sms-2m/resolve/05bca75df9b272da7d9c31dfcda459b8140925f3/inference.py"
+    },
+    {
+      "name": "localtype_tokenizer.py",
+      "bytes": 11894,
+      "sha256": "22250623a2dc0e8aef22e1d0a712b194fc553519f573247a0a6cf95266429eb4",
+      "url": "https://huggingface.co/lukeslp/chime-sms-2m/resolve/05bca75df9b272da7d9c31dfcda459b8140925f3/localtype_tokenizer.py"
+    }
+  ]
+}

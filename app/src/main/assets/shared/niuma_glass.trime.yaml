@@ -1,0 +1,322 @@
+# SPDX-License-Identifier: GPL-3.0-or-later
+# Original keyboard/layout; no Baidu/vivo skin images, fonts or logos are used.
+__include: trime:/
+config_version: "0.2.0"
+name: 液态玻璃
+author: Local customization
+
+# Raw composing letters sit above candidates INSIDE the shared glass panel.
+preedit:
+  alpha: 1.0
+  horizontal_padding: 0
+  foreground:
+    font_size: 16
+
+style:
+  candidate_text_size: 21
+  candidate_padding: 12
+  candidate_spacing: 0
+  candidate_view_height: 38
+  candidate_border: 0
+  candidate_corner_radius: 8
+  comment_text_size: 10
+  horizontal_gap: 5
+  vertical_gap: 8
+  keyboard_padding: 4
+  keyboard_padding_bottom: 4
+  key_height: 51
+  key_text_size: 24
+  key_long_text_size: 13
+  key_width: 10
+  keyboard_height: 250
+  round_corner: 7
+  shadow_radius: 0
+  symbol_text_size: 9
+
+preset_color_schemes:
+  default:
+    name: 原生玻璃·浅色
+    dark_scheme: niuma_dark
+    back_color: '0x00000000'
+    root_background: '0x00000000'
+    candidate_background: '0x00000000'
+    candidate_border_color: '0x00000000'
+    keyboard_background: '0x00000000'
+    popup_back_color: '0x00000000'
+    keyboard_back_color: '0x00000000'
+    liquid_keyboard_background: '0x00000000'
+    text_back_color: '0x00000000'
+    border_color: '0x00000000'
+    candidate_separator_color: '0x00000000'
+    candidate_text_color: '0xff1c1c1c'
+    text_color: '0xff1c1c1c'
+    label_color: '0xff777777'
+    comment_text_color: '0xff777777'
+    key_back_color: '0xb8ffffff'
+    key_text_color: '0xff151515'
+    key_symbol_color: '0xff77797e'
+    key_border_color: '0x30ffffff'
+    hilited_candidate_back_color: '0x00000000'
+    hilited_candidate_text_color: '0xff1e548e'
+    hilited_text_color: '0xff151515'
+    hilited_back_color: '0x00000000'
+    hilited_key_back_color: '0x30ffffff'
+    hilited_key_text_color: '0xff151515'
+    hilited_key_symbol_color: '0xff555555'
+    off_key_back_color: '0x18000000'
+    off_key_text_color: '0xff222222'
+    on_key_back_color: '0x553a73bc'
+    on_key_text_color: '0xff1d355b'
+    preview_back_color: '0xfffdfdfd'
+    preview_text_color: '0xff151515'
+    shadow_color: '0x00000000'
+  niuma_dark:
+    name: 原生玻璃·深色
+    light_scheme: default
+    back_color: '0x00000000'
+    root_background: '0x00000000'
+    candidate_background: '0x00000000'
+    candidate_border_color: '0x00000000'
+    keyboard_background: '0x00000000'
+    popup_back_color: '0x00000000'
+    keyboard_back_color: '0x00000000'
+    liquid_keyboard_background: '0x00000000'
+    text_back_color: '0x00000000'
+    border_color: '0x00000000'
+    candidate_separator_color: '0x00000000'
+    candidate_text_color: '0xfff4f4f4'
+    text_color: '0xfff4f4f4'
+    label_color: '0xffb8b8b8'
+    comment_text_color: '0xffb8b8b8'
+    key_back_color: '0xa3000000'
+    key_text_color: '0xfff7f7f7'
+    key_symbol_color: '0xffa5a6ad'
+    key_border_color: '0x24ffffff'
+    hilited_candidate_back_color: '0x00000000'
+    hilited_candidate_text_color: '0xffa9ceff'
+    hilited_text_color: '0xffffffff'
+    hilited_back_color: '0x00000000'
+    hilited_key_back_color: '0x24ffffff'
+    hilited_key_text_color: '0xffffffff'
+    hilited_key_symbol_color: '0xffeeeeee'
+    off_key_back_color: '0x12ffffff'
+    off_key_text_color: '0xfff2f2f2'
+    on_key_back_color: '0x66455e85'
+    on_key_text_color: '0xffffffff'
+    preview_back_color: '0xff555558'
+    preview_text_color: '0xffffffff'
+    shadow_color: '0x00000000'
+
+# Original, always-local utilities. The phrase entry opens the app's user-managed favorites.
+preset_keys:
+  # Preset labels also apply in ASCII/punctuation modes where per-key labels are bypassed.
+  Shift_L: {label: 'vec@shift'}
+  BackSpace: {label: 'vec@backspace'}
+  Keyboard_number: {label: 'vec@number'}
+  Menu: {label: 'vec@schema'}
+  space: {label: 'vec@space', repeatable: false}
+  Keyboard_symbols: {label: 'vec@symbol'}
+  Return1: {label: enter_labels}
+  niuma_edit: {label: 编辑, send: Eisu_toggle, select: niuma_edit}
+  niuma_phrases: {label: 短语, send: FUNCTION, command: clipboard_window, option: '1'}
+  niuma_select_left: {label: 左选, send: Shift+Left, repeatable: true}
+  niuma_select_right: {label: 右选, send: Shift+Right, repeatable: true}
+  cut: {label: 'vec@cut'}
+  copy: {label: 'vec@copy'}
+  paste: {label: 'vec@paste'}
+
+tool_bar:
+  button_spacing: 6
+  primary_button:
+    action: Settings
+    size: [40, 38]
+    foreground: {style: 'vec@settings', font_size: 20}
+  buttons:
+    - action: Hide
+      size: [36, 38]
+      foreground: {style: '⌄', font_size: 21}
+    - action: VOICE_ASSIST
+      size: [42, 38]
+      foreground: {style: 'vec@voice', font_size: 20}
+    - action: liquid_keyboard_emoji
+      size: [40, 38]
+      foreground: {style: 'vec@emoji', font_size: 20}
+    - action: clipboard_window
+      size: [42, 38]
+      foreground: {style: 'vec@clipboard', font_size: 20}
+    - action: niuma_edit
+      size: [42, 38]
+      foreground: {style: 'vec@edit', font_size: 20}
+    - action: niuma_phrases
+      size: [42, 38]
+      foreground: {style: 'vec@phrase', font_size: 20}
+
+preset_keyboards:
+  # Runtime smart matching prefers schema id, then qwerty; both must resolve
+  # to the custom layout instead of upstream's inherited default40 import.
+  niuma_glass:
+    import_preset: default
+  qwerty:
+    import_preset: default
+  niuma_edit:
+    name: 光标与编辑
+    ascii_mode: 1
+    width: 20
+    height: 51
+    lock: false
+    keys:
+      - {click: Home}
+      - {click: Up}
+      - {click: End}
+      - {click: undo}
+      - {click: redo}
+      - {click: Left}
+      - {click: Down}
+      - {click: Right}
+      - {click: niuma_select_left}
+      - {click: niuma_select_right}
+      - {click: select_all}
+      - {click: cut}
+      - {click: copy}
+      - {click: paste}
+      - {click: Delete}
+      - {click: Keyboard_default, width: 40}
+      - {click: space, width: 20}
+      - {click: BackSpace, width: 20}
+      - {click: Return, width: 20}
+  # Numeric and symbol layouts: copied from trime.yaml with explicit swipe_up matching each advertised
+  # printable long_click (the upper legend), so swipe-up never falls back to tap.
+  number:
+    name: 预设数字
+    author: "osfans <waxaca@163.com>"
+    width: 20
+    height: 44
+    keys:
+    - {click: '+'}
+    - {click: 'KP_1'}
+    - {click: 'KP_2'}
+    - {click: 'KP_3'}
+    - {click: '#'}
+    - {click: '-'}
+    - {click: 'KP_4'}
+    - {click: 'KP_5'}
+    - {click: 'KP_6'}
+    - {click: '%'}
+    - {click: '*'}
+    - {click: 'KP_7'}
+    - {click: 'KP_8'}
+    - {click: 'KP_9'}
+    - {click: ':'}
+    - {click: '/'}
+    - {click: '±'}
+    - {click: 'KP_0'}
+    - {click: '.'}
+    - {click: ','}
+    - {click: '='}
+    - {click: Keyboard_default, long_click: Keyboard_symbols, swipe_up: Keyboard_symbols}
+    - {click: space}
+    - {click: BackSpace}
+    - {click: Return}
+  symbols:
+    name: 符号
+    author: "天真可愛的滿滿"
+    ascii_mode: 1
+    width: 10
+    height: 44
+    keys:
+    - {click: '1'}
+    - {click: '2'}
+    - {click: '3'}
+    - {click: '4'}
+    - {click: '5'}
+    - {click: '6'}
+    - {click: '7'}
+    - {click: '8'}
+    - {click: '9'}
+    - {click: '0'}
+    - {click: '~', long_click: '`', swipe_up: '`'}
+    - {click: '!'}
+    - {click: '@'}
+    - {click: '#'}
+    - {click: '$'}
+    - {click: '￥'}
+    - {click: '%'}
+    - {click: '^'}
+    - {click: '&'}
+    - {click: '*'}
+    - {click: '(', long_click: '{', swipe_up: '{'}
+    - {click: ')', long_click: '}', swipe_up: '}'}
+    - {click: '[', long_click: '【', swipe_up: '【'}
+    - {click: ']', long_click: '】', swipe_up: '】'}
+    - {click: '「', long_click: '『', swipe_up: '『'}
+    - {click: '」', long_click: '』', swipe_up: '』'}
+    - {click: '、', ascii: '\', long_click: '|', swipe_up: '|'}
+    - {click: '/', long_click: '√', swipe_up: '√'}
+    - {click: ':'}
+    - {click: ';'}
+    - {click: '+'}
+    - {click: '-', long_click: '_', swipe_up: '_'}
+    - {click: '='}
+    - {click: '〈', long_click: '《', swipe_up: '《', ascii: '<'}
+    - {click: '〉', long_click: '》', swipe_up: '》', ascii: '>'}
+    - {click: '“', ascii: '"', long_click: '‘', swipe_up: '‘'}
+    - {click: '”', ascii: "'", long_click: '’', swipe_up: '’'}
+    - {click: '，', ascii: ',', long_click: one_hand_switch_1}
+    - {click: '？', ascii: '?', long_click: one_hand_switch_3}
+    - {click: BackSpace, long_click: Escape}
+    - {click: Keyboard_default, long_click: Menu, width: 15}
+    - {click: Keyboard_number, long_click: Color_switch}
+    - {click: Keyboard_mini, long_click: Theme_settings}
+    - {click: space, width: 30}
+    - {click: '。', ascii: '.'}
+    - {click: liquid_keyboard_switch, long_click: Delete}
+    - {click: Return, long_click: select_all, width: 15}
+  default:
+    name: 牛码 QWERTY
+    ascii_mode: 0
+    width: 10
+    height: 51
+    lock: true
+    label_transform: uppercase
+    keys:
+      - {click: q, long_click: '1'}
+      - {click: w, long_click: '2'}
+      - {click: e, long_click: '3'}
+      - {click: r, long_click: '4'}
+      - {click: t, long_click: '5'}
+      - {click: y, long_click: '6'}
+      - {click: u, long_click: '7'}
+      - {click: i, long_click: '8'}
+      - {click: o, long_click: '9'}
+      - {click: p, long_click: '0'}
+      - {width: 5}
+      - {click: a, long_click: '!'}
+      - {click: s, long_click: '@'}
+      - {click: d, long_click: '#'}
+      - {click: f, long_click: '$'}
+      - {click: g, long_click: '%'}
+      - {click: h, long_click: '&'}
+      - {click: j, long_click: '*'}
+      - {click: k, long_click: '('}
+      - {click: l, long_click: ')'}
+      - {width: 5}
+      # Shift swipe-up toggles Caps Lock (KeyView); label_symbol draws the top-right corner glyph.
+      - {click: Shift_L, label: 'vec@shift', label_symbol: 'vec@capslock', width: 15}
+      - {click: z, long_click: '-'}
+      - {click: x, long_click: cut}
+      - {click: c, long_click: copy}
+      - {click: v, long_click: paste}
+      - {click: b, long_click: ':'}
+      - {click: n, long_click: ';'}
+      - {click: m, long_click: '?'}
+      - {click: BackSpace, label: 'vec@backspace', width: 15}
+      # Left 34%, centered space 32%, right 34%: numeric / schema / comma / space / period / symbols / return.
+      - {click: Keyboard_number, label: 'vec@number', width: 12}
+      - {click: Menu, label: 'vec@schema', long_click: Mode_switch, swipe_up: Mode_switch, width: 12}
+      - {click: ',', width: 10}
+      # long-press space switches to the existing VOICE_ASSIST voice input;
+      # label_symbol renders the voice glyph as a secondary hint on the space bar
+      - {click: space, label: 'vec@space', label_symbol: 'vec@voice', long_click: VOICE_ASSIST, width: 32}
+      - {click: '.', width: 10}
+      - {click: Keyboard_symbols, label: 'vec@symbol', width: 12}
+      - {click: Return, composing: Return1, width: 12}

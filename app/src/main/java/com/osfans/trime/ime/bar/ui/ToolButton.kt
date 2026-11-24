@@ -23,6 +23,7 @@ import com.osfans.trime.data.theme.model.ToolBar
 import com.osfans.trime.ime.core.AutoScaleTextView
 import com.osfans.trime.ime.keyboard.GestureFrame
 import com.osfans.trime.ime.keyboard.KeyboardWindow
+import com.osfans.trime.ime.ui.VectorGlyphs
 import splitties.dimensions.dp
 import splitties.views.dsl.core.add
 import splitties.views.dsl.core.imageView
@@ -208,11 +209,15 @@ class ToolButton(context: Context, private val scope: ThemeScope) : GestureFrame
             singleStyle
         }
 
-        // drawable: local image or iconics
+        contentDescription = VectorGlyphs.description(style)
+
+        // drawable: local image, vector glyph, or iconics
         var useLocalImage = false
         val drawable = if (IMAGE_PATTERN.matches(style)) {
             useLocalImage = true
             scope.drawable(style)
+        } else if (VectorGlyphs.description(style) != null) {
+            VectorGlyphs.drawable(context, style, colorStateList?.defaultColor ?: scope.colors.candidateTextColor)
         } else if (style.startsWith("ic@")) {
             val icon = "cmd_${style.substring(3)}"
             IconicsDrawable(context, icon).apply {

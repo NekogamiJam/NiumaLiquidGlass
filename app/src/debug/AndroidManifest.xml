@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Merge this manifest only into the debug variant; never into main/release. -->
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+    <application>
+        <activity android:name="com.osfans.trime.debug.EnglishProbeActivity" android:exported="true"
+            android:permission="android.permission.DUMP" android:excludeFromRecents="true" />
+        <activity
+            android:name="com.osfans.trime.debug.OfflineAsrProbeActivity"
+            android:exported="true"
+            android:permission="android.permission.DUMP"
+            android:excludeFromRecents="true"
+            android:process=":offlineasrcheck" />
+        <activity
+            android:name="com.osfans.trime.debug.EngineProbeActivity"
+            android:exported="true"
+            android:permission="android.permission.DUMP"
+            android:excludeFromRecents="true"
+            android:process=":enginecheck" />
+        <receiver
+            android:name="com.osfans.trime.debug.EngineProbeReceiver"
+            android:exported="true"
+            android:permission="android.permission.DUMP"
+            android:process=":enginecheck">
+            <intent-filter>
+                <action android:name="local.niuma.glass.debug.ENGINE_CHECK" />
+            </intent-filter>
+        </receiver>
+    </application>
+</manifest>

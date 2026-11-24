@@ -11,8 +11,13 @@ SPDX-License-Identifier: GPL-3.0-or-later
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
     <uses-permission android:name="android.permission.VIBRATE" />
     <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+    <!-- Requested only after explicit microphone disclosure; the keyboard itself stores no audio. -->
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
 
     <queries>
+        <intent>
+            <action android:name="android.speech.RecognitionService" />
+        </intent>
         <intent>
             <action android:name="android.intent.action.TTS_SERVICE" />
         </intent>
@@ -112,6 +117,11 @@ SPDX-License-Identifier: GPL-3.0-or-later
             android:taskAffinity=".ui.main.LiquidKeyboardEditActivity"
             android:theme="@style/Theme.DialogTheme"
             android:windowSoftInputMode="stateAlwaysVisible|adjustPan" />
+
+        <activity
+            android:name=".ime.voice.VoicePermissionActivity"
+            android:exported="false"
+            android:excludeFromRecents="true" />
 
         <!-- Using an activity alias to disable/enable the app icon in the launcher -->
         <activity-alias

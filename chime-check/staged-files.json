@@ -1,0 +1,22 @@
+{
+  "format": 1,
+  "managed_by": "niuma-chime",
+  "files": {
+    "cifg_int8.bin": {
+      "bytes": 2221879,
+      "sha256": "3255dbeaf6e7fc0922afdca42ef751a22e3ad28903ab4acc9eb0022b9a704318"
+    },
+    "LICENSE.md": {
+      "bytes": 719,
+      "sha256": "9f3e30a0522f6fc3625ae0408de5b4cffd5ded9b77af381fb002930c1498353d"
+    },
+    "NOTICE.txt": {
+      "bytes": 3217,
+      "sha256": "73bfc707af2d7046c3f56dbaf2ea7a0048c5bb63b407cd8ebd61d42f3610d281"
+    },
+    "Apache-2.0.txt": {
+      "bytes": 10174,
+      "sha256": "0d542e0c8804e39aa7f37eb00da5a762149dc682d7829451287e11b938e94594"
+    }
+  }
+}

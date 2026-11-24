@@ -12,6 +12,19 @@ import org.kodein.di.DI
 import org.kodein.di.DIAware
 import org.kodein.di.instance
 
+internal fun resolveEnterKeyGlyph(action: Int?): String = when (action) {
+    EditorInfo.IME_ACTION_SEARCH -> "vec@search"
+    EditorInfo.IME_ACTION_SEND -> "vec@send"
+    EditorInfo.IME_ACTION_DONE -> "vec@done"
+    EditorInfo.IME_ACTION_GO -> "vec@go"
+    EditorInfo.IME_ACTION_NEXT -> "vec@next"
+    EditorInfo.IME_ACTION_PREVIOUS -> "vec@previous"
+    else -> "vec@return"
+}
+
+internal fun shouldNotifyEnterKeyUpdate(oldLabel: String, newLabel: String, oldGlyph: String, newGlyph: String): Boolean =
+    oldLabel != newLabel || oldGlyph != newGlyph
+
 class EnterKeyDisplayDelegate(override val di: DI) : DIAware {
     private val broadcaster: InputBroadcaster by instance()
     private val theme: Theme by instance()
@@ -32,6 +45,10 @@ class EnterKeyDisplayDelegate(override val di: DI) : DIAware {
     var keyLabel: String = DEFAULT_LABEL
         private set
 
+    /** Matching vector glyph for the editor action; presentation only. */
+    var keyGlyph: String = "vec@return"
+        private set
+
     fun updateLabelOnEditorInfo(info: EditorInfo) {
         updateLabel(info.inputType, info.imeOptions, info.actionId, info.actionLabel)
     }
@@ -39,6 +56,9 @@ class EnterKeyDisplayDelegate(override val di: DI) : DIAware {
     /** Updates the visible text before notifying listeners, without repeating unchanged labels. */
     internal fun updateLabel(inputType: Int, imeOptions: Int, actionId: Int, actionLabel: CharSequence?) {
         val action = EditorEnterAction.resolve(inputType, imeOptions, actionId, actionLabel)
+        val glyph = resolveEnterKeyGlyph(action)
+        val oldGlyph = keyGlyph
+        keyGlyph = glyph
         val label = EditorEnterAction.label(action, actionLabel, mode.ordinal, theme.style.enterLabels.default) { themeAction ->
             with(theme.style.enterLabels) {
                 when (themeAction) {
@@ -52,7 +72,7 @@ class EnterKeyDisplayDelegate(override val di: DI) : DIAware {
                 }
             }
         }
-        if (keyLabel == label) return
+        if (!shouldNotifyEnterKeyUpdate(keyLabel, label, oldGlyph, glyph)) return
         keyLabel = label
         broadcaster.onEnterKeyLabelUpdate(keyLabel)
     }

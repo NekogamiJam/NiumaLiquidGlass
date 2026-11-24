@@ -70,6 +70,9 @@ interface RimeApi {
 
     suspend fun commitComposition(): Boolean
 
+    /** Commit any pending composition, followed by literal text in the same response. */
+    suspend fun commitLiteralAfterComposition(text: String, stillCurrent: () -> Boolean)
+
     suspend fun clearComposition()
 
     suspend fun getRawInput(): String

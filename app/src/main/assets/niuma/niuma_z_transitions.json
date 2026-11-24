@@ -1,0 +1,19 @@
+{
+  "format": 1,
+  "schema_id": "niuma_glass",
+  "source_expected_sha256": "73f77da4d14535405d020b769b5c6ffe527a4ef8a36afdf052ec02937aa1d44e",
+  "code_count": 170277,
+  "extend_z_prefixes": [
+    "z",
+    "zb",
+    "zc",
+    "zd",
+    "zg",
+    "zj",
+    "zn",
+    "zp",
+    "zt",
+    "zw",
+    "zy"
+  ]
+}

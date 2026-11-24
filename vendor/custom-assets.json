@@ -1,0 +1,38 @@
+[
+  {
+    "name": "niumawb.dict.yaml",
+    "source": "input-data\\niumawb.dict.yaml",
+    "sha256": "294e03d15a30f9a53ff78d7b9a5a0060f1dc71a2600ace0091d2765ed6ace92e",
+    "bytes": 459
+  },
+  {
+    "name": "niumawb_zc.dict.yaml",
+    "source": "input-data\\niumawb_zc.dict.yaml",
+    "sha256": "09eff608e8831aa704005aa50ef69450d1729d752e3c212edcc894db9f51aaa9",
+    "bytes": 3788312
+  },
+  {
+    "name": "niumawb_fh.dict.yaml",
+    "source": "input-data\\niumawb_fh.dict.yaml",
+    "sha256": "05b9981ba4aa20153012bc7762b137a0a29ed8bb8de7c17f2843a079a3466e2b",
+    "bytes": 6276
+  },
+  {
+    "name": "niuma_glass.schema.yaml",
+    "source": "custom-data\\niuma_glass.schema.yaml",
+    "sha256": "d4027dc67bd4f9b47947c726ee63f1a65cd31cca550d426cd52df78f37893745",
+    "bytes": 4731
+  },
+  {
+    "name": "niuma_glass.trime.yaml",
+    "source": "custom-data\\niuma_glass.trime.yaml",
+    "sha256": "5dbffa8db2227ee720440583cece7841946126b5a184ab60e332b3047a64f73e",
+    "bytes": 11119
+  },
+  {
+    "name": "lua/niuma_fourcode.lua",
+    "source": "custom-data\\lua\\niuma_fourcode.lua",
+    "sha256": "3390449a5d78e33908f97ab802215d0155dbe9a47fa62c24ff61d3c199de9108",
+    "bytes": 1203
+  }
+]

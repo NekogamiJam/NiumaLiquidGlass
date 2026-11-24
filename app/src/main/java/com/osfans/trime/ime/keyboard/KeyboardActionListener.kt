@@ -17,6 +17,11 @@ interface KeyboardActionListener {
 
     fun onAction(action: KeyAction)
 
+    fun onNiumaClearBeforeCursor(pressEpoch: Long) {}
+
+    /** Explicit touch behavior; false delegates to the existing action path unchanged. */
+    fun onNiumaGesture(action: KeyAction, behavior: KeyBehavior, fallback: KeyAction?, pressEpoch: Long): Boolean = false
+
     /**
      * Send a key press to the listener.
      *

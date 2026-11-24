@@ -1,0 +1,8 @@
+{
+  "tag": "v3.3.13",
+  "upstreamCommit": "b5cad1a49095a3652e9188982de400ca3a653f37",
+  "sourceArchiveSHA256": "B8690B5BCC78CF572A451C81D1DAAFD568284A7BCE2EF3E599EDD367618569BF",
+  "officialApkSHA256": "E7535EA421A25962EB2EA37C46FF867838E69D33BA6D935876AB84D108DE5020",
+  "nativeStrategy": "Unmodified arm64 JNI from matching official release; native sources remain obtainable at pinned upstream submodule commits",
+  "sourceURL": "https://github.com/osfans/trime/tree/b5cad1a49095a3652e9188982de400ca3a653f37"
+}

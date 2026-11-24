@@ -1,0 +1,10 @@
+{
+  "source_sha256": "09eff608e8831aa704005aa50ef69450d1729d752e3c212edcc894db9f51aaa9",
+  "sha256": "7b25a7be27c4861d2ee90d46db9f33007db7b55bd9d350680b19744828aa4f15",
+  "bytes": 1949629,
+  "keys": 67921,
+  "phone_access": false,
+  "statistical_language_model": false,
+  "source": "association-tools\\generated\\niuma_associations.json",
+  "target": "\app\\src\\main\\assets\\niuma\\niuma_associations.json"
+}

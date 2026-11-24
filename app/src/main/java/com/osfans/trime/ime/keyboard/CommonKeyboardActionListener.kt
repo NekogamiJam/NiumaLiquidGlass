@@ -24,6 +24,11 @@ import com.osfans.trime.data.theme.ThemeManager
 import com.osfans.trime.data.theme.model.LiquidKeyboard
 import com.osfans.trime.ime.clipboard.ClipboardWindow
 import com.osfans.trime.ime.core.TrimeInputMethodService
+import com.osfans.trime.ime.glass.LiquidGlassStyle
+import com.osfans.trime.ime.gesture.GestureKind
+import com.osfans.trime.ime.gesture.GestureEngine
+import com.osfans.trime.ime.gesture.GestureEngineState
+import com.osfans.trime.ime.gesture.NiumaGestureExecutor
 import com.osfans.trime.ime.dialog.EnabledSchemaPickerDialog
 import com.osfans.trime.ime.switches.SwitchOptionWindow
 import com.osfans.trime.ime.symbol.LiquidWindow
@@ -112,14 +117,39 @@ class CommonKeyboardActionListener(override val di: DI) : DIAware {
     val listener by lazy {
         object : KeyboardActionListener {
             override fun onPress(keyEventCode: Int) {
+                service.onNiumaInputAction(resetContext = keyEventCode !in KeyEvent.KEYCODE_A..KeyEvent.KEYCODE_Z, preserveEnglish = service.preserveNiumaEnglishKey(keyEventCode))
                 InputFeedbackManager.run {
                     keyPressSound(keyEventCode)
                     keyPressSpeak(keyEventCode)
                 }
             }
 
+            override fun onNiumaClearBeforeCursor(pressEpoch: Long) {
+                service.clearNiumaBeforeCursor(pressEpoch)
+            }
+
             override fun onAction(action: KeyAction) {
-                val text = action.getText(KeyboardWindow.currentKeyboard)
+                service.onNiumaInputAction(resetContext = action.code !in KeyEvent.KEYCODE_A..KeyEvent.KEYCODE_Z, preserveEnglish = service.preserveNiumaEnglishKey(action.code))
+                if (action.code != KeyEvent.KEYCODE_VOICE_ASSIST) service.cancelNiumaVoiceInput()
+                val keyboard = KeyboardWindow.currentKeyboard
+                if (action.commit.isEmpty() && action.modifier == 0 && keyboard.isCapsLock &&
+                    keyboard.modifier == KeyEvent.META_SHIFT_ON && action.code in KeyEvent.KEYCODE_A..KeyEvent.KEYCODE_Z &&
+                    ThemeManager.prefs.selectedTheme.getValue() == LiquidGlassStyle.CONFIG_ID
+                ) {
+                    val guard = service.niumaGestureSessionGuard(service.niumaGestureEpoch()) ?: return
+                    val letter = ('A'.code + action.code - KeyEvent.KEYCODE_A).toChar().toString()
+                    service.postRimeJob {
+                        if (!guard()) return@postRimeJob
+                        if (statusCached.schemaId == "niuma_glass" && !statusCached.isAsciiMode) {
+                            // Shifted letters otherwise enter onText below and can create a Chinese preedit.
+                            commitLiteralAfterComposition(letter, guard)
+                        } else {
+                            simulateKeySequence(letter)
+                        }
+                    }
+                    return
+                }
+                val text = action.getText(keyboard)
                 val shouldHandle = when {
                     action.commit.isNotEmpty() -> {
                         service.commitText(action.commit)
@@ -143,7 +173,7 @@ class CommonKeyboardActionListener(override val di: DI) : DIAware {
                         KeyEvent.KEYCODE_SETTINGS -> handleSettings(action)
                         KeyEvent.KEYCODE_PROG_RED -> showColorPicker()
                         KeyEvent.KEYCODE_MENU -> showEnabledSchemaPicker()
-                        KeyEvent.KEYCODE_VOICE_ASSIST -> switchToVoiceInputMethod()
+                        KeyEvent.KEYCODE_VOICE_ASSIST -> service.startNiumaVoiceInput()
                         else -> handleDefaultKeyAction(action)
                     }
                 }
@@ -354,10 +384,11 @@ class CommonKeyboardActionListener(override val di: DI) : DIAware {
                 }
 
                 val modifier = when {
-                    action.modifier == 0 -> KeyboardWindow.currentKeyboard.modifier
+                    // Caps Lock only affects letters: modifierFor drops its SHIFT bit for other keys.
+                    action.modifier == 0 -> KeyboardWindow.currentKeyboard.modifierFor(action.code)
 
                     (action.modifier and KeyEvent.META_CTRL_ON) != 0 && isNavigationKey(action.code) ->
-                        action.modifier or KeyboardWindow.currentKeyboard.modifier
+                        action.modifier or KeyboardWindow.currentKeyboard.modifierFor(action.code)
 
                     else -> action.modifier
                 }
@@ -369,54 +400,76 @@ class CommonKeyboardActionListener(override val di: DI) : DIAware {
                 keyCode == KeyEvent.KEYCODE_MOVE_HOME ||
                 keyCode == KeyEvent.KEYCODE_MOVE_END
 
-            override fun onKey(
-                keyEventCode: Int,
-                metaState: Int,
-            ) {
-                // An uppercase letter key (e.g. from `{x: A}`) is passed to
-                // rime as the uppercase keysym with Shift, matching what a
-                // physical keyboard reports via the unicode char, so that
-                // rime commits the uppercase letter in ascii mode as well.
-                // The generated reverse mapping would otherwise resolve e.g.
-                // KEYCODE_A to the lowercase name "a" (XK_a).
-                val value =
-                    if (metaState and KeyEvent.META_SHIFT_ON != 0 &&
-                        keyEventCode in KeyEvent.KEYCODE_A..KeyEvent.KEYCODE_Z
-                    ) {
-                        'A'.code + (keyEventCode - KeyEvent.KEYCODE_A) // XK_A..XK_Z
-                    } else {
-                        val name = KeyCode.codeToKeyName(keyEventCode) ?: "VoidSymbol"
-                        RimeKeyEvent.getKeycodeByName(name)
-                    }
-                val m = if (keyEventCode in KeyEvent.KEYCODE_NUMPAD_0..KeyEvent.KEYCODE_NUMPAD_EQUALS) {
-                    metaState or KeyEvent.META_NUM_LOCK_ON
-                } else {
-                    metaState
-                }
-                val modifiers = KeyModifiers.fromMetaState(m).modifiers
+            override fun onNiumaGesture(action: KeyAction, behavior: KeyBehavior, fallback: KeyAction?, pressEpoch: Long): Boolean {
+                if (ThemeManager.prefs.selectedTheme.getValue() != LiquidGlassStyle.CONFIG_ID ||
+                    action.code !in setOf(KeyEvent.KEYCODE_L, KeyEvent.KEYCODE_Z) ||
+                    (behavior != KeyBehavior.CLICK && behavior != KeyBehavior.SWIPE_UP) ||
+                    (behavior == KeyBehavior.CLICK && action.code != KeyEvent.KEYCODE_Z)
+                ) return false
+                val keyboard = KeyboardWindow.currentKeyboard
+                val modifiers = keyboard.modifier or action.modifier
+                // Shift/Control/Alt and inline bindings retain their complete original path.
+                if (modifiers != 0 || action.commit.isNotEmpty() || action.getText(keyboard).isNotEmpty()) return false
+                val fallbackText = fallback?.getText(keyboard).orEmpty()
+                if (fallback != null && (fallback.commit.isNotEmpty() || fallback.command.isNotEmpty() ||
+                    (fallbackText.isEmpty() && !KeyCode.isStandardKey(fallback.code)) ||
+                    fallbackText.any { it == '{' || it == '}' || it.isISOControl() })
+                ) return false
+                val guard = service.niumaGestureSessionGuard(pressEpoch) ?: return true // discard old touch
+                val fallbackCode = fallback?.code
+                val fallbackModifiers = fallback?.modifier?.takeIf { it != 0 } ?: keyboard.modifier
+                service.onNiumaInputAction()
+                service.cancelNiumaVoiceInput()
                 service.postRimeJob {
-                    if (service.hookKeyboard(keyEventCode, m)) {
-                        Timber.d("handleKey: hook")
-                        return@postRimeJob
+                    val api = this
+                    val engine = object : GestureEngine {
+                        override suspend fun snapshot(): GestureEngineState = GestureEngineState(
+                            getRawInput(), selectedSchemaId(), getRuntimeOption("ascii_mode"),
+                            getCandidates(0, 3).map { it.text }, compositionCached.cursorPos,
+                        )
+                        override suspend fun selectGlobal(index: Int): Boolean = selectCandidate(index, global = true)
                     }
-                    if (processKey(value, modifiers)) {
-                        Timber.d("handleKey: processKey")
-                        return@postRimeJob
-                    }
-                    if (AppUtils.launchKeyCategory(service, keyEventCode)) {
-                        Timber.d("handleKey: openCategory")
-                        return@postRimeJob
-                    }
-                    // other special cases
-                    if (keyEventCode == KeyEvent.KEYCODE_BACK) {
-                        service.requestHideSelf(0)
+                    NiumaGestureExecutor.execute(engine,
+                        if (action.code == KeyEvent.KEYCODE_L) 'l' else 'z',
+                        if (behavior == KeyBehavior.SWIPE_UP) GestureKind.SWIPE_UP else GestureKind.TAP,
+                        modifiers, service.niumaGestureIndex(), guard,
+                    ) {
+                        // Deliberately inline: do not post another job behind subsequent letters.
+                        if (fallbackText.isNotEmpty()) api.simulateKeySequence(fallbackText)
+                        else if (fallbackCode != null) api.dispatchKeyInline(fallbackCode, fallbackModifiers)
                     }
                 }
+                return true
+            }
+
+            override fun onKey(keyEventCode: Int, metaState: Int) {
+                service.cancelNiumaVoiceInput()
+                service.postRimeJob { dispatchKeyInline(keyEventCode, metaState) }
+            }
+
+            /** The original onKey path shared by normal input and same-job gesture fallback. */
+            private suspend fun RimeApi.dispatchKeyInline(keyEventCode: Int, metaState: Int) {
+                val value = if (metaState and KeyEvent.META_SHIFT_ON != 0 &&
+                    keyEventCode in KeyEvent.KEYCODE_A..KeyEvent.KEYCODE_Z
+                ) {
+                    'A'.code + (keyEventCode - KeyEvent.KEYCODE_A)
+                } else {
+                    RimeKeyEvent.getKeycodeByName(KeyCode.codeToKeyName(keyEventCode) ?: "VoidSymbol")
+                }
+                val m = if (keyEventCode in KeyEvent.KEYCODE_NUMPAD_0..KeyEvent.KEYCODE_NUMPAD_EQUALS)
+                    metaState or KeyEvent.META_NUM_LOCK_ON else metaState
+                val modifiers = KeyModifiers.fromMetaState(m).modifiers
+                if (service.hookKeyboard(keyEventCode, m)) return
+                if (processKey(value, modifiers)) return
+                if (AppUtils.launchKeyCategory(service, keyEventCode)) return
+                if (keyEventCode == KeyEvent.KEYCODE_BACK) service.requestHideSelf(0)
             }
 
             override fun onText(input: String) {
+                service.onNiumaInputAction(resetContext = !input.all { it in 'a'..'z' || it in 'A'..'Z' }, preserveEnglish = input.length <= 64 && input.all { it.code in 9..126 })
+                service.cancelNiumaVoiceInput()
                 if (input.isEmpty()) return
-                Timber.d("onText: $input")
+                Timber.d("onText: %d code units", input.length)
                 val status = rime.run { statusCached }
                 if (!input[0].isAsciiPrintable() && status.isComposing) {
                     service.postRimeJob { commitComposition() }

@@ -49,6 +49,17 @@ class LiquidLayout(
     // TODO: 继承一个键盘视图嵌入到这里，而不是自定义一个视图
     // The fixed-key items, kept so their colors can be refreshed on scheme switches.
     private val fixedKeyItems = mutableListOf<LiquidItemUi>()
+    private val fixedKeyLabels = linkedMapOf<LiquidItemUi, String>()
+
+    private fun bindFixedLabel(ui: LiquidItemUi, label: String) {
+        val glyph = com.osfans.trime.ime.ui.VectorGlyphs.drawable(context, label, scope.colors.keyTextColor)
+        ui.mainText.text = if (glyph == null) label else ""
+        // AutoScaleTextView has a custom onDraw that omits compound drawables.
+        // A foreground is drawn by View.draw independently of that text-only path.
+        ui.mainText.minimumWidth = if (glyph == null) 0 else context.dp(40)
+        ui.mainText.foreground = glyph?.let { android.graphics.drawable.InsetDrawable(it, context.dp(4)) }
+        ui.root.contentDescription = com.osfans.trime.ime.ui.VectorGlyphs.description(label) ?: label
+    }
 
     private val fixedKeyBar =
         constraintLayout {
@@ -61,7 +72,9 @@ class LiquidLayout(
                         val presetKey = theme.presetKeys[presetKeyName]
                         val ui = LiquidItemUi(context, scope)
                         fixedKeyItems += ui
-                        ui.mainText.text = presetKey?.label ?: ""
+                        val label = presetKey?.label ?: ""
+                        fixedKeyLabels[ui] = label
+                        bindFixedLabel(ui, label)
                         ui.root.apply {
                             isRepeatable = presetKey?.repeatable ?: false
                             onClick = {
@@ -220,6 +233,7 @@ class LiquidLayout(
 
     fun refreshColors() {
         fixedKeyItems.forEach { it.refreshColors() }
+        fixedKeyLabels.forEach { (ui, label) -> bindFixedLabel(ui, label) }
         tabsUi.refreshColors()
         recyclerView.adapter?.notifyDataSetChanged()
     }

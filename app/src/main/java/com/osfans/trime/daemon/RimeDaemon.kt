@@ -48,7 +48,12 @@ object RimeDaemon {
 
     private val realRime by lazy { Rime() }
 
-    private val rimeImpl by lazy { object : RimeApi by realRime {} }
+    private val rimeImpl by lazy {
+        object : RimeApi by realRime {
+            override suspend fun commitLiteralAfterComposition(text: String, stillCurrent: () -> Boolean) =
+                realRime.commitLiteralAfterComposition(text, stillCurrent)
+        }
+    }
 
     private val sessions = mutableMapOf<String, RimeSession>()
 

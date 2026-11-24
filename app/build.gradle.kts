@@ -18,15 +18,17 @@ plugins {
 
 android {
     namespace = "com.osfans.trime"
+    // StorageAccess 2.0.0 requires API 37; use the verified official SDK 37.0.
+    // targetSdk remains 35, independently of the compile-time SDK.
     compileSdk = 37
-    buildToolsVersion = "37.0.0"
+    buildToolsVersion = "36.0.0"
 
     defaultConfig {
-        applicationId = "com.osfans.trime"
-        minSdk = 21
-        targetSdk = 37
-        versionCode = 20261101
-        versionName = "3.3.13"
+        applicationId = "local.niuma.glass"
+        minSdk = 31
+        targetSdk = 35
+        versionCode = 2
+        versionName = "0.1.0"
 
         multiDexEnabled = true
         buildConfigField("String", "BUILDER", "\"${project.builder}\"")
@@ -65,12 +67,12 @@ android {
                     }
                 }
 
-            resValue("string", "trime_app_name", "@string/app_name_release")
+            resValue("string", "trime_app_name", "Rime · 液态玻璃")
         }
         debug {
             applicationIdSuffix = ".debug"
 
-            resValue("string", "trime_app_name", "@string/app_name_debug")
+            resValue("string", "trime_app_name", "Rime · 液态玻璃")
         }
         all {
             // remove META-INF/version-control-info.textproto
@@ -93,6 +95,10 @@ android {
     dependenciesInfo {
         includeInApk = false
         includeInBundle = false
+    }
+
+    androidResources {
+        noCompress += "onnx"
     }
 
     packaging {
@@ -172,6 +178,12 @@ dependencies {
     testImplementation(libs.kotest.runner.junit5)
     testImplementation(libs.kotest.assertions.core)
     androidTestImplementation(libs.junit)
+}
+
+// The matching official release's OpenCC assets are staged by the local
+// offline build preparation script. Do not regenerate them from absent submodules.
+tasks.named("installOpenCCData") {
+    enabled = false
 }
 
 configurations {

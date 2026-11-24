@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "releaseTag": "niuma-0.1.0",
+  "repository": "NekogamiJam/NiumaLiquidGlass",
+  "note": "These files are intentionally not tracked in git: 228 MiB exceeds GitHub's plain-git 100 MiB per-file limit. tools/fetch-binaries.py downloads each one and verifies its SHA-256 before the build.",
+  "files": [
+    {
+      "path": "app/src/main/assets/offline-asr/sensevoice.int8.onnx",
+      "kind": "pretrained-model-weights",
+      "bytes": 239233841,
+      "sha256": "c71f0ce00bec95b07744e116345e33d8cbbe08cef896382cf907bf4b51a2cd51",
+      "download": "https://github.com/NekogamiJam/NiumaLiquidGlass/releases/download/niuma-0.1.0/sensevoice.int8.onnx"
+    },
+    {
+      "path": "app/src/main/assets/offline-asr/silero_vad.onnx",
+      "kind": "pretrained-model-weights",
+      "bytes": 643854,
+      "sha256": "9e2449e1087496d8d4caba907f23e0bd3f78d91fa552479bb9c23ac09cbb1fd6",
+      "download": "https://github.com/NekogamiJam/NiumaLiquidGlass/releases/download/niuma-0.1.0/silero_vad.onnx"
+    },
+    {
+      "path": "app/src/main/jniLibs/arm64-v8a/libonnxruntime.so",
+      "kind": "precompiled-native-binary",
+      "bytes": 15988232,
+      "sha256": "c7c0e6b0f9c364a4df4bfc9a3a3576b691899e96f4d9beb60f3b3a7ce4bf572c",
+      "download": "https://github.com/NekogamiJam/NiumaLiquidGlass/releases/download/niuma-0.1.0/libonnxruntime.so"
+    },
+    {
+      "path": "app/src/main/jniLibs/arm64-v8a/libsherpa-onnx-c-api.so",
+      "kind": "precompiled-native-binary",
+      "bytes": 4689352,
+      "sha256": "49d5e329408a6c93040d2ab76e86db4fd438f243c5f87e575870897fa6249948",
+      "download": "https://github.com/NekogamiJam/NiumaLiquidGlass/releases/download/niuma-0.1.0/libsherpa-onnx-c-api.so"
+    },
+    {
+      "path": "app/prebuilt/arm64-v8a/librime_jni.so",
+      "kind": "precompiled-native-binary",
+      "bytes": 5959312,
+      "sha256": "46d348441416a6cc51a7a3ed2f123d68af358d761df28d70ba9bbac407e015a2",
+      "download": "https://github.com/NekogamiJam/NiumaLiquidGlass/releases/download/niuma-0.1.0/librime_jni.so"
+    }
+  ]
+}

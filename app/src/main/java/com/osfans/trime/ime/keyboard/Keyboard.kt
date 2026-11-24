@@ -56,6 +56,10 @@ class Keyboard(
     var mMetaKey: Key? = null
     var mSymKey: Key? = null
 
+    /** Shift swipe-up Caps Lock: persists until Shift is tapped or the keyboard is reset. */
+    var isCapsLock: Boolean = false
+        private set
+
     /**
      * Total height of the keyboard, including the padding and keys
      *
@@ -357,11 +361,42 @@ class Keyboard(
     }
 
     val isShifted: Boolean
-        get() = modifier.hasFlag(KeyEvent.META_SHIFT_ON) || mShiftKey?.isOn == true
+        get() = modifier.hasFlag(KeyEvent.META_SHIFT_ON) || mShiftKey?.isOn == true || isCapsLock
+
+    /** True when the one-shot Shift key itself is latched on (not the Caps Lock flag). */
+    private val isShiftOneShotOn: Boolean
+        get() = mShiftKey?.isOn == true
+
+    /**
+     * Toggles Caps Lock from the Shift key's swipe-up gesture. Caps is stored as the SHIFT bit so the
+     * letter path (uppercase labels, Niuma gestures, Rime SHIFT meta) matches one-shot Shift; non-letter
+     * keys drop that bit through [modifierFor], so caps never turns `,` into `<`.
+     */
+    fun toggleCapsLock(): Boolean {
+        isCapsLock = !isCapsLock
+        setModifier(KeyEvent.META_SHIFT_ON, isCapsLock || isShiftOneShotOn)
+        return true
+    }
+
+    /** Clears Caps Lock, e.g. when a plain Shift tap is pressed while locked. */
+    fun clearCapsLock(): Boolean {
+        if (!isCapsLock) return false
+        isCapsLock = false
+        return setModifier(KeyEvent.META_SHIFT_ON, isShiftOneShotOn)
+    }
+
+    /**
+     * Modifier mask for dispatching [keyCode]. When only Caps Lock (not one-shot Shift) is active,
+     * SHIFT is kept for letters A..Z and removed for every other key, so caps changes letters only.
+     */
+    fun modifierFor(keyCode: Int): Int {
+        if (!isCapsLock || isShiftOneShotOn || keyCode in KeyEvent.KEYCODE_A..KeyEvent.KEYCODE_Z) return modifier
+        return modifier and KeyEvent.META_SHIFT_ON.inv()
+    }
 
     val isOnlyShiftOn: Boolean
         get() =
-            isShifted &&
+            isShifted && (!isCapsLock || isShiftOneShotOn) &&
                 !modifier.hasFlag(KeyEvent.META_CTRL_ON or KeyEvent.META_ALT_ON or KeyEvent.META_SYM_ON or KeyEvent.META_META_ON)
 
     /**
@@ -376,7 +411,7 @@ class Keyboard(
         shifted: Boolean,
     ): Boolean {
         mShiftKey?.setOn(on)
-        return setModifier(KeyEvent.META_SHIFT_ON, shifted)
+        return setModifier(KeyEvent.META_SHIFT_ON, shifted || isCapsLock)
     }
 
     /**
@@ -406,13 +441,13 @@ class Keyboard(
 
     fun resetShift() {
         mShiftKey?.setOn(false)
-        setModifier(KeyEvent.META_SHIFT_ON, false)
+        setModifier(KeyEvent.META_SHIFT_ON, isCapsLock)
     }
 
     fun refreshModifier(): Boolean {
         // 这里改为了一次性重置全部修饰键状态并返回TRUE刷新UI，可能有bug
         var result = false
-        if (mShiftKey != null && !mShiftKey!!.isOn) result = result || setModifier(KeyEvent.META_SHIFT_ON, false)
+        if (mShiftKey != null && !mShiftKey!!.isOn && !isCapsLock) result = result || setModifier(KeyEvent.META_SHIFT_ON, false)
         if (mAltKey != null && !mAltKey!!.isOn) result = result || setModifier(KeyEvent.META_ALT_ON, false)
         if (mCtrlKey != null && !mCtrlKey!!.isOn) result = result || setModifier(KeyEvent.META_CTRL_ON, false)
         if (mMetaKey != null && !mMetaKey!!.isOn) result = result || setModifier(KeyEvent.META_META_ON, false)

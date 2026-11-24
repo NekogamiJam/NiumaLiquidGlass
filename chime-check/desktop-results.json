@@ -1,0 +1,2038 @@
+{
+  "model": "Chime-SMS-2M pinned INT8, NumPy upstream float64 reference",
+  "load_seconds": 0.03561910000280477,
+  "before_memory": {
+    "WorkingSetSize": 29081600,
+    "PeakWorkingSetSize": 29372416,
+    "PrivateUsage": 52957184
+  },
+  "after_memory": {
+    "WorkingSetSize": 53186560,
+    "PeakWorkingSetSize": 59015168,
+    "PrivateUsage": 76759040
+  },
+  "quality_screen": {
+    "next": {
+      "cases": 40,
+      "top1": 33,
+      "top3": 37
+    },
+    "completion": {
+      "cases": 20,
+      "top1": 18,
+      "top3": 20
+    }
+  },
+  "criteria_passed": true,
+  "warm_median_ms": 7.263100007548928,
+  "warm_max_ms": 9.527099988190457,
+  "cases": [
+    {
+      "id": "next-01",
+      "kind": "next",
+      "text": "thank ",
+      "targets": [
+        "you"
+      ],
+      "prefix": "",
+      "context_ids": [
+        1,
+        443
+      ],
+      "suggestions": [
+        "you",
+        "goodness",
+        "god",
+        "for",
+        "you're",
+        "what"
+      ],
+      "first_ms": 8.055200014496222,
+      "warm_median_ms": 7.832150004105642,
+      "target_top1": true,
+      "target_top3": true
+    },
+    {
+      "id": "next-02",
+      "kind": "next",
+      "text": "thank you ",
+      "targets": [
+        "for",
+        "so",
+        "very"
+      ],
+      "prefix": "",
+      "context_ids": [
+        1,
+        443,
+        330
+      ],
+      "suggestions": [
+        "so",
+        "for",
+        "very",
+        "again",
+        "i",
+        "and"
+      ],
+      "first_ms": 8.177800016710535,
+      "warm_median_ms": 9.13030000810977,
+      "target_top1": true,
+      "target_top3": true
+    },
+    {
+      "id": "next-03",
+      "kind": "next",
+      "text": "good ",
+      "targets": [
+        "morning",
+        "night",
+        "luck",
+        "day"
+      ],
+      "prefix": "",
+      "context_ids": [
+        1,
+        383
+      ],
+      "suggestions": [
+        "morning",
+        "job",
+        "luck",
+        "idea",
+        "night",
+        "to"
+      ],
+      "first_ms": 6.93239999236539,
+      "warm_median_ms": 7.352300002821721,
+      "target_top1": true,
+      "target_top3": true
+    },
+    {
+      "id": "next-04",
+      "kind": "next",
+      "text": "good morning ",
+      "targets": [
+        "everyone",
+        "to",
+        "sir"
+      ],
+      "prefix": "",
+      "context_ids": [
+        1,
+        383,
+        666
+      ],
+      "suggestions": [
+        "i",
+        "haha",
+        "and",
+        "man",
+        "sir",
+        "at"
+      ],
+      "first_ms": 7.203900022432208,
+      "warm_median_ms": 7.303250007680617,
+      "target_top1": false,
+      "target_top3": false
+    },
+    {
+      "id": "next-05",
+      "kind": "next",
+      "text": "see you ",
+      "targets": [
+        "soon",
+        "later",
+        "tomorrow"
+      ],
+      "prefix": "",
+      "context_ids": [
+        1,
+        385,
+        330
+      ],
+      "suggestions": [
+        "later",
+        "soon",
+        "then",
+        "tomorrow",
+        "at",
+        "on"
+      ],
+      "first_ms": 7.63030000962317,
+      "warm_median_ms": 7.73244998708833,
+      "target_top1": true,
+      "target_top3": true
+    },
+    {
+      "id": "next-06",
+      "kind": "next",
+      "text": "how are ",
+      "targets": [
+        "you"
+      ],
+      "prefix": "",
+      "context_ids": [
+        1,
+        371,
+        363
+      ],
+      "suggestions": [
+        "you",
+        "they",
+        "the",
+        "things",
+        "we",
+        "your"
+      ],
+      "first_ms": 7.751199998892844,
+      "warm_median_ms": 7.39320000866428,
+      "target_top1": true,
+      "target_top3": true
+    },
+    {
+      "id": "next-07",
+      "kind": "next",
+      "text": "I love ",
+      "targets": [
+        "you",
+        "it",
+        "this"
+      ],
+      "prefix": "",
+      "context_ids": [
+        1,
+        331,
+        471
+      ],
+      "suggestions": [
+        "you",
+        "it",
+        "the",
+        "being",
+        "your",
+        "playing"
+      ],
+      "first_ms": 7.762599998386577,
+      "warm_median_ms": 7.727649994194508,
+      "target_top1": true,
+      "target_top3": true
+    },
+    {
+      "id": "next-08",
+      "kind": "next",
+      "text": "have a nice ",
+      "targets": [
+        "day",
+        "weekend",
+        "time"
+      ],
+      "prefix": "",
+      "context_ids": [
+        1,
+        352,
+        334,
+        555
+      ],
+      "suggestions": [
+        "day",
+        "night",
+        "evening",
+        "weekend",
+        "trip",
+        "week"
+      ],
+      "first_ms": 7.263500010594726,
+      "warm_median_ms": 7.389749996946193,
+      "target_top1": true,
+      "target_top3": true
+    },
+    {
+      "id": "next-09",
+      "kind": "next",
+      "text": "please let me ",
+      "targets": [
+        "know"
+      ],
+      "prefix": "",
+      "context_ids": [
+        1,
+        405,
+        414,
+        343
+      ],
+      "suggestions": [
+        "know",
+        "see",
+        "go",
+        "get",
+        "take",
+        "check"
+      ],
+      "first_ms": 7.314499991480261,
+      "warm_median_ms": 7.195099999080412,
+      "target_top1": true,
+      "target_top3": true
+    },
+    {
+      "id": "next-10",
+      "kind": "next",
+      "text": "I would like to ",
+      "targets": [
+        "know",
+        "get",
+        "see",
+        "have",
+        "ask"
+      ],
+      "prefix": "",
+      "context_ids": [
+        1,
+        331,
+        375,
+        353,
+        333
+      ],
+      "suggestions": [
+        "order",
+        "see",
+        "get",
+        "go",
+        "have",
+        "make"
+      ],
+      "first_ms": 7.123999996110797,
+      "warm_median_ms": 7.267399996635504,
+      "target_top1": false,
+      "target_top3": true
+    },
+    {
+      "id": "next-11",
+      "kind": "next",
+      "text": "could you please ",
+      "targets": [
+        "help",
+        "tell",
+        "send",
+        "let"
+      ],
+      "prefix": "",
+      "context_ids": [
+        1,
+        425,
+        330,
+        405
+      ],
+      "suggestions": [
+        "give",
+        "order",
+        "explain",
+        "make",
+        "provide",
+        "book"
+      ],
+      "first_ms": 7.73689997731708,
+      "warm_median_ms": 7.706100004725158,
+      "target_top1": false,
+      "target_top3": false
+    },
+    {
+      "id": "next-12",
+      "kind": "next",
+      "text": "looking forward to ",
+      "targets": [
+        "seeing",
+        "hearing",
+        "it"
+      ],
+      "prefix": "",
+      "context_ids": [
+        1,
+        521,
+        1003,
+        333
+      ],
+      "suggestions": [
+        "the",
+        "my",
+        "your",
+        "a",
+        "this",
+        "it"
+      ],
+      "first_ms": 6.8805000046268106,
+      "warm_median_ms": 7.20730000466574,
+      "target_top1": false,
+      "target_top3": false
+    },
+    {
+      "id": "next-13",
+      "kind": "next",
+      "text": "as soon as ",
+      "targets": [
+        "possible",
+        "you",
+        "i"
+      ],
+      "prefix": "",
+      "context_ids": [
+        1,
+        404,
+        659,
+        404
+      ],
+      "suggestions": [
+        "possible",
+        "i",
+        "you",
+        "they",
+        "we",
+        "it"
+      ],
+      "first_ms": 7.669399987207726,
+      "warm_median_ms": 7.163649992435239,
+      "target_top1": true,
+      "target_top3": true
+    },
+    {
+      "id": "next-14",
+      "kind": "next",
+      "text": "if you have any ",
+      "targets": [
+        "questions",
+        "problems",
+        "other"
+      ],
+      "prefix": "",
+      "context_ids": [
+        1,
+        377,
+        330,
+        352,
+        445
+      ],
+      "suggestions": [
+        "questions",
+        "other",
+        "more",
+        "idea",
+        "ideas",
+        "problems"
+      ],
+      "first_ms": 7.7708000026177615,
+      "warm_median_ms": 7.685750009841286,
+      "target_top1": true,
+      "target_top3": true
+    },
+    {
+      "id": "next-15",
+      "kind": "next",
+      "text": "let me know if ",
+      "targets": [
+        "you",
+        "there"
+      ],
+      "prefix": "",
+      "context_ids": [
+        1,
+        414,
+        343,
+        368,
+        377
+      ],
+      "suggestions": [
+        "you",
+        "there's",
+        "there",
+        "you're",
+        "it",
+        "the"
+      ],
+      "first_ms": 7.211199990706518,
+      "warm_median_ms": 7.372100008069538,
+      "target_top1": true,
+      "target_top3": true
+    },
+    {
+      "id": "next-16",
+      "kind": "next",
+      "text": "I am interested in ",
+      "targets": [
+        "the",
+        "your",
+        "it",
+        "this"
+      ],
+      "prefix": "",
+      "context_ids": [
+        1,
+        331,
+        457,
+        697,
+        341
+      ],
+      "suggestions": [
+        "the",
+        "buying",
+        "purchasing",
+        "a",
+        "seeing",
+        "playing"
+      ],
+      "first_ms": 7.186700007878244,
+      "warm_median_ms": 7.367649988736957,
+      "target_top1": true,
+      "target_top3": true
+    },
+    {
+      "id": "next-17",
+      "kind": "next",
+      "text": "I will call you ",
+      "targets": [
+        "later",
+        "tomorrow",
+        "back"
+      ],
+      "prefix": "",
+      "context_ids": [
+        1,
+        331,
+        397,
+        528,
+        330
+      ],
+      "suggestions": [
+        "later",
+        "when",
+        "at",
+        "tomorrow",
+        "back",
+        "to"
+      ],
+      "first_ms": 7.233799988171086,
+      "warm_median_ms": 7.48365001345519,
+      "target_top1": true,
+      "target_top3": true
+    },
+    {
+      "id": "next-18",
+      "kind": "next",
+      "text": "what do you ",
+      "targets": [
+        "think",
+        "mean",
+        "want",
+        "do"
+      ],
+      "prefix": "",
+      "context_ids": [
+        1,
+        342,
+        358,
+        330
+      ],
+      "suggestions": [
+        "mean",
+        "think",
+        "want",
+        "know",
+        "need",
+        "have"
+      ],
+      "first_ms": 7.651899999473244,
+      "warm_median_ms": 7.265950000146404,
+      "target_top1": true,
+      "target_top3": true
+    },
+    {
+      "id": "next-19",
+      "kind": "next",
+      "text": "do you want to ",
+      "targets": [
+        "go",
+        "come",
+        "know",
+        "see"
+      ],
+      "prefix": "",
+      "context_ids": [
+        1,
+        358,
+        330,
+        373,
+        333
+      ],
+      "suggestions": [
+        "talk",
+        "go",
+        "take",
+        "get",
+        "come",
+        "play"
+      ],
+      "first_ms": 7.312500005355105,
+      "warm_median_ms": 7.408500023302622,
+      "target_top1": false,
+      "target_top3": true
+    },
+    {
+      "id": "next-20",
+      "kind": "next",
+      "text": "I am going to ",
+      "targets": [
+        "be",
+        "get",
+        "go",
+        "see",
+        "have"
+      ],
+      "prefix": "",
+      "context_ids": [
+        1,
+        331,
+        457,
+        409,
+        333
+      ],
+      "suggestions": [
+        "be",
+        "go",
+        "the",
+        "take",
+        "get",
+        "make"
+      ],
+      "first_ms": 7.1223999839276075,
+      "warm_median_ms": 7.952799991471693,
+      "target_top1": true,
+      "target_top3": true
+    },
+    {
+      "id": "next-21",
+      "kind": "next",
+      "text": "happy ",
+      "targets": [
+        "birthday",
+        "new",
+        "to"
+      ],
+      "prefix": "",
+      "context_ids": [
+        1,
+        517
+      ],
+      "suggestions": [
+        "birthday",
+        "new",
+        "to",
+        "diwali",
+        "bday",
+        "little"
+      ],
+      "first_ms": 7.911499997135252,
+      "warm_median_ms": 7.893049987615086,
+      "target_top1": true,
+      "target_top3": true
+    },
+    {
+      "id": "next-22",
+      "kind": "next",
+      "text": "happy birthday ",
+      "targets": [
+        "to",
+        "and"
+      ],
+      "prefix": "",
+      "context_ids": [
+        1,
+        517,
+        1336
+      ],
+      "suggestions": [
+        "dear",
+        "to",
+        "you",
+        "princess",
+        "for",
+        "birthday"
+      ],
+      "first_ms": 7.786900008795783,
+      "warm_median_ms": 7.77625001501292,
+      "target_top1": false,
+      "target_top3": true
+    },
+    {
+      "id": "next-23",
+      "kind": "next",
+      "text": "nice to meet ",
+      "targets": [
+        "you"
+      ],
+      "prefix": "",
+      "context_ids": [
+        1,
+        555,
+        333,
+        681
+      ],
+      "suggestions": [
+        "you",
+        "her",
+        "him",
+        "at",
+        "wru",
+        "so"
+      ],
+      "first_ms": 7.535999990068376,
+      "warm_median_ms": 8.197400005883537,
+      "target_top1": true,
+      "target_top3": true
+    },
+    {
+      "id": "next-24",
+      "kind": "next",
+      "text": "it was nice to ",
+      "targets": [
+        "meet",
+        "see",
+        "hear"
+      ],
+      "prefix": "",
+      "context_ids": [
+        1,
+        336,
+        360,
+        555,
+        333
+      ],
+      "suggestions": [
+        "meet",
+        "get",
+        "see",
+        "catch",
+        "finally",
+        "be"
+      ],
+      "first_ms": 7.981300004757941,
+      "warm_median_ms": 7.842500010156073,
+      "target_top1": true,
+      "target_top3": true
+    },
+    {
+      "id": "next-25",
+      "kind": "next",
+      "text": "I am sorry ",
+      "targets": [
+        "for",
+        "to",
+        "but",
+        "about"
+      ],
+      "prefix": "",
+      "context_ids": [
+        1,
+        331,
+        457,
+        484
+      ],
+      "suggestions": [
+        "for",
+        "to",
+        "i",
+        "if",
+        "that",
+        "about"
+      ],
+      "first_ms": 7.7855999988969415,
+      "warm_median_ms": 8.471149994875304,
+      "target_top1": true,
+      "target_top3": true
+    },
+    {
+      "id": "next-26",
+      "kind": "next",
+      "text": "sorry for the ",
+      "targets": [
+        "late",
+        "delay",
+        "inconvenience"
+      ],
+      "prefix": "",
+      "context_ids": [
+        1,
+        484,
+        339,
+        332
+      ],
+      "suggestions": [
+        "delay",
+        "inconvenience",
+        "confusion",
+        "way",
+        "pain",
+        "wait"
+      ],
+      "first_ms": 8.683099993504584,
+      "warm_median_ms": 9.527099988190457,
+      "target_top1": true,
+      "target_top3": true
+    },
+    {
+      "id": "next-27",
+      "kind": "next",
+      "text": "thanks for your ",
+      "targets": [
+        "help",
+        "time",
+        "reply",
+        "support"
+      ],
+      "prefix": "",
+      "context_ids": [
+        1,
+        427,
+        339,
+        356
+      ],
+      "suggestions": [
+        "help",
+        "support",
+        "advice",
+        "assistance",
+        "time",
+        "concern"
+      ],
+      "first_ms": 7.714099978329614,
+      "warm_median_ms": 8.378900005482137,
+      "target_top1": true,
+      "target_top3": true
+    },
+    {
+      "id": "next-28",
+      "kind": "next",
+      "text": "let us ",
+      "targets": [
+        "know",
+        "go",
+        "see",
+        "meet"
+      ],
+      "prefix": "",
+      "context_ids": [
+        1,
+        414,
+        430
+      ],
+      "suggestions": [
+        "know",
+        "see",
+        "take",
+        "get",
+        "think",
+        "understand"
+      ],
+      "first_ms": 8.709399990038946,
+      "warm_median_ms": 7.800449995556846,
+      "target_top1": true,
+      "target_top3": true
+    },
+    {
+      "id": "next-29",
+      "kind": "next",
+      "text": "what is your ",
+      "targets": [
+        "name",
+        "email",
+        "address",
+        "number"
+      ],
+      "prefix": "",
+      "context_ids": [
+        1,
+        342,
+        340,
+        356
+      ],
+      "suggestions": [
+        "favorite",
+        "problem",
+        "name",
+        "best",
+        "purpose",
+        "secret"
+      ],
+      "first_ms": 8.65100001101382,
+      "warm_median_ms": 8.044800022616982,
+      "target_top1": false,
+      "target_top3": true
+    },
+    {
+      "id": "next-30",
+      "kind": "next",
+      "text": "can you help ",
+      "targets": [
+        "me",
+        "us"
+      ],
+      "prefix": "",
+      "context_ids": [
+        1,
+        347,
+        330,
+        433
+      ],
+      "suggestions": [
+        "me",
+        "us",
+        "with",
+        "yourself",
+        "out",
+        "you"
+      ],
+      "first_ms": 7.953499996801838,
+      "warm_median_ms": 7.9487500042887405,
+      "target_top1": true,
+      "target_top3": true
+    },
+    {
+      "id": "next-31",
+      "kind": "next",
+      "text": "we need to ",
+      "targets": [
+        "get",
+        "go",
+        "be",
+        "do",
+        "talk"
+      ],
+      "prefix": "",
+      "context_ids": [
+        1,
+        344,
+        391,
+        333
+      ],
+      "suggestions": [
+        "get",
+        "make",
+        "talk",
+        "be",
+        "find",
+        "take"
+      ],
+      "first_ms": 8.432500006165355,
+      "warm_median_ms": 7.970650010975078,
+      "target_top1": true,
+      "target_top3": true
+    },
+    {
+      "id": "next-32",
+      "kind": "next",
+      "text": "I think it is ",
+      "targets": [
+        "a",
+        "the",
+        "good",
+        "very",
+        "not"
+      ],
+      "prefix": "",
+      "context_ids": [
+        1,
+        331,
+        381,
+        336,
+        340
+      ],
+      "suggestions": [
+        "a",
+        "the",
+        "important",
+        "worth",
+        "pretty",
+        "good"
+      ],
+      "first_ms": 8.597500011092052,
+      "warm_median_ms": 8.027550007682294,
+      "target_top1": true,
+      "target_top3": true
+    },
+    {
+      "id": "next-33",
+      "kind": "next",
+      "text": "at the end of the ",
+      "targets": [
+        "day",
+        "week",
+        "month",
+        "year"
+      ],
+      "prefix": "",
+      "context_ids": [
+        1,
+        367,
+        332,
+        667,
+        338,
+        332
+      ],
+      "suggestions": [
+        "day",
+        "world",
+        "tunnel",
+        "morning",
+        "week",
+        "night"
+      ],
+      "first_ms": 8.222600008593872,
+      "warm_median_ms": 8.738149990676902,
+      "target_top1": true,
+      "target_top3": true
+    },
+    {
+      "id": "next-34",
+      "kind": "next",
+      "text": "on my way ",
+      "targets": [
+        "to",
+        "home",
+        "back"
+      ],
+      "prefix": "",
+      "context_ids": [
+        1,
+        350,
+        349,
+        462
+      ],
+      "suggestions": [
+        "to",
+        "home",
+        "back",
+        "now",
+        "here",
+        "le"
+      ],
+      "first_ms": 7.443799986504018,
+      "warm_median_ms": 7.196449994808063,
+      "target_top1": true,
+      "target_top3": true
+    },
+    {
+      "id": "next-35",
+      "kind": "next",
+      "text": "I have a ",
+      "targets": [
+        "question",
+        "lot",
+        "few",
+        "new"
+      ],
+      "prefix": "",
+      "context_ids": [
+        1,
+        331,
+        352,
+        334
+      ],
+      "suggestions": [
+        "few",
+        "lot",
+        "fever",
+        "headache",
+        "book",
+        "great"
+      ],
+      "first_ms": 7.190600008470938,
+      "warm_median_ms": 7.203899993328378,
+      "target_top1": true,
+      "target_top3": true
+    },
+    {
+      "id": "next-36",
+      "kind": "next",
+      "text": "please send me ",
+      "targets": [
+        "the",
+        "your",
+        "a",
+        "an"
+      ],
+      "prefix": "",
+      "context_ids": [
+        1,
+        405,
+        825,
+        343
+      ],
+      "suggestions": [
+        "the",
+        "a",
+        "some",
+        "an",
+        "my",
+        "your"
+      ],
+      "first_ms": 7.290199981071055,
+      "warm_median_ms": 7.457800005795434,
+      "target_top1": true,
+      "target_top3": true
+    },
+    {
+      "id": "next-37",
+      "kind": "next",
+      "text": "are you free ",
+      "targets": [
+        "today",
+        "tomorrow",
+        "tonight",
+        "this"
+      ],
+      "prefix": "",
+      "context_ids": [
+        1,
+        363,
+        330,
+        743
+      ],
+      "suggestions": [
+        "today",
+        "tomorrow",
+        "tonight",
+        "to",
+        "now",
+        "tmr"
+      ],
+      "first_ms": 7.063999975798652,
+      "warm_median_ms": 7.100699993316084,
+      "target_top1": true,
+      "target_top3": true
+    },
+    {
+      "id": "next-38",
+      "kind": "next",
+      "text": "talk to you ",
+      "targets": [
+        "later",
+        "soon",
+        "tomorrow"
+      ],
+      "prefix": "",
+      "context_ids": [
+        1,
+        534,
+        333,
+        330
+      ],
+      "suggestions": [
+        "later",
+        "soon",
+        "tomorrow",
+        "again",
+        "about",
+        "for"
+      ],
+      "first_ms": 7.08049998502247,
+      "warm_median_ms": 7.876099989516661,
+      "target_top1": true,
+      "target_top3": true
+    },
+    {
+      "id": "next-39",
+      "kind": "next",
+      "text": "I do not ",
+      "targets": [
+        "know",
+        "want",
+        "think",
+        "have"
+      ],
+      "prefix": "",
+      "context_ids": [
+        1,
+        331,
+        358,
+        364
+      ],
+      "suggestions": [
+        "want",
+        "have",
+        "like",
+        "know",
+        "care",
+        "need"
+      ],
+      "first_ms": 7.187900017015636,
+      "warm_median_ms": 7.203049986856058,
+      "target_top1": true,
+      "target_top3": true
+    },
+    {
+      "id": "next-40",
+      "kind": "next",
+      "text": "welcome ",
+      "targets": [
+        "to",
+        "back",
+        "home"
+      ],
+      "prefix": "",
+      "context_ids": [
+        1,
+        970
+      ],
+      "suggestions": [
+        "to",
+        "back",
+        "aboard",
+        "home",
+        "nc",
+        "over"
+      ],
+      "first_ms": 7.303999998839572,
+      "warm_median_ms": 7.220100014819764,
+      "target_top1": true,
+      "target_top3": true
+    },
+    {
+      "id": "completion-01",
+      "kind": "completion",
+      "text": "congrat",
+      "targets": [
+        "congratulations"
+      ],
+      "prefix": "congrat",
+      "context_ids": [
+        1
+      ],
+      "suggestions": [
+        "congratulations",
+        "congrats",
+        "congratulate"
+      ],
+      "first_ms": 1.4104000001680106,
+      "warm_median_ms": 1.2615500018000603,
+      "target_top1": true,
+      "target_top3": true
+    },
+    {
+      "id": "completion-02",
+      "kind": "completion",
+      "text": "unbeliev",
+      "targets": [
+        "unbelievable"
+      ],
+      "prefix": "unbeliev",
+      "context_ids": [
+        1
+      ],
+      "suggestions": [
+        "unbelievable"
+      ],
+      "first_ms": 1.2377999955788255,
+      "warm_median_ms": 1.0686999885365367,
+      "target_top1": true,
+      "target_top3": true
+    },
+    {
+      "id": "completion-03",
+      "kind": "completion",
+      "text": "sched",
+      "targets": [
+        "schedule",
+        "scheduled",
+        "scheduling"
+      ],
+      "prefix": "sched",
+      "context_ids": [
+        1
+      ],
+      "suggestions": [
+        "schedule",
+        "scheduled",
+        "scheduling",
+        "schedules"
+      ],
+      "first_ms": 1.029600010951981,
+      "warm_median_ms": 0.9756499930517748,
+      "target_top1": true,
+      "target_top3": true
+    },
+    {
+      "id": "completion-04",
+      "kind": "completion",
+      "text": "I apprec",
+      "targets": [
+        "appreciate",
+        "appreciated"
+      ],
+      "prefix": "apprec",
+      "context_ids": [
+        1,
+        331
+      ],
+      "suggestions": [
+        "appreciate",
+        "appreciated",
+        "appreciation",
+        "appreciates"
+      ],
+      "first_ms": 1.0667000024113804,
+      "warm_median_ms": 1.0384500055806711,
+      "target_top1": true,
+      "target_top3": true
+    },
+    {
+      "id": "completion-05",
+      "kind": "completion",
+      "text": "good morn",
+      "targets": [
+        "morning"
+      ],
+      "prefix": "morn",
+      "context_ids": [
+        1,
+        383
+      ],
+      "suggestions": [
+        "morning",
+        "morn",
+        "mornin",
+        "mornings"
+      ],
+      "first_ms": 1.1248999799136072,
+      "warm_median_ms": 1.3254000077722594,
+      "target_top1": true,
+      "target_top3": true
+    },
+    {
+      "id": "completion-06",
+      "kind": "completion",
+      "text": "please conf",
+      "targets": [
+        "confirm",
+        "conference",
+        "confirmed"
+      ],
+      "prefix": "conf",
+      "context_ids": [
+        1,
+        405
+      ],
+      "suggestions": [
+        "confirm",
+        "confess",
+        "confirmation",
+        "conform",
+        "configure",
+        "confuse"
+      ],
+      "first_ms": 1.080199988791719,
+      "warm_median_ms": 1.0863000061362982,
+      "target_top1": true,
+      "target_top3": true
+    },
+    {
+      "id": "completion-07",
+      "kind": "completion",
+      "text": "thank y",
+      "targets": [
+        "you"
+      ],
+      "prefix": "y",
+      "context_ids": [
+        1,
+        443
+      ],
+      "suggestions": [
+        "you",
+        "you're",
+        "ya",
+        "your",
+        "yo",
+        "yourself"
+      ],
+      "first_ms": 1.312499982304871,
+      "warm_median_ms": 1.370350000797771,
+      "target_top1": true,
+      "target_top3": true
+    },
+    {
+      "id": "completion-08",
+      "kind": "completion",
+      "text": "see you tom",
+      "targets": [
+        "tomorrow"
+      ],
+      "prefix": "tom",
+      "context_ids": [
+        1,
+        385,
+        330
+      ],
+      "suggestions": [
+        "tomorrow",
+        "tom",
+        "tomorow",
+        "tomolo",
+        "tommorow",
+        "tomoro"
+      ],
+      "first_ms": 1.277600007597357,
+      "warm_median_ms": 1.1855000047944486,
+      "target_top1": true,
+      "target_top3": true
+    },
+    {
+      "id": "completion-09",
+      "kind": "completion",
+      "text": "have a nice wee",
+      "targets": [
+        "weekend",
+        "week"
+      ],
+      "prefix": "wee",
+      "context_ids": [
+        1,
+        352,
+        334,
+        555
+      ],
+      "suggestions": [
+        "weekend",
+        "week",
+        "wee",
+        "weekday",
+        "weekends",
+        "weeks"
+      ],
+      "first_ms": 1.2071000237483531,
+      "warm_median_ms": 1.1838999926112592,
+      "target_top1": true,
+      "target_top3": true
+    },
+    {
+      "id": "completion-10",
+      "kind": "completion",
+      "text": "look forw",
+      "targets": [
+        "forward"
+      ],
+      "prefix": "forw",
+      "context_ids": [
+        1,
+        428
+      ],
+      "suggestions": [
+        "forward"
+      ],
+      "first_ms": 1.0054000013042241,
+      "warm_median_ms": 1.1368499981472269,
+      "target_top1": true,
+      "target_top3": true
+    },
+    {
+      "id": "completion-11",
+      "kind": "completion",
+      "text": "hello every",
+      "targets": [
+        "everyone",
+        "everybody"
+      ],
+      "prefix": "every",
+      "context_ids": [
+        1,
+        586
+      ],
+      "suggestions": [
+        "everyone",
+        "everybody",
+        "everything",
+        "every",
+        "everyone's",
+        "everywhere"
+      ],
+      "first_ms": 1.3005000073462725,
+      "warm_median_ms": 1.1617499985732138,
+      "target_top1": true,
+      "target_top3": true
+    },
+    {
+      "id": "completion-12",
+      "kind": "completion",
+      "text": "underst",
+      "targets": [
+        "understand",
+        "understood"
+      ],
+      "prefix": "underst",
+      "context_ids": [
+        1
+      ],
+      "suggestions": [
+        "understand",
+        "understood",
+        "understandable",
+        "understanding",
+        "understands"
+      ],
+      "first_ms": 1.0051999997813255,
+      "warm_median_ms": 1.072649989509955,
+      "target_top1": true,
+      "target_top3": true
+    },
+    {
+      "id": "completion-13",
+      "kind": "completion",
+      "text": "inform",
+      "targets": [
+        "information",
+        "informed",
+        "inform"
+      ],
+      "prefix": "inform",
+      "context_ids": [
+        1
+      ],
+      "suggestions": [
+        "informative",
+        "information",
+        "inform",
+        "informed",
+        "informing",
+        "informal"
+      ],
+      "first_ms": 0.9363999997731298,
+      "warm_median_ms": 1.0655000078259036,
+      "target_top1": false,
+      "target_top3": true
+    },
+    {
+      "id": "completion-14",
+      "kind": "completion",
+      "text": "impor",
+      "targets": [
+        "important",
+        "importance"
+      ],
+      "prefix": "impor",
+      "context_ids": [
+        1
+      ],
+      "suggestions": [
+        "important",
+        "import",
+        "importance",
+        "imported",
+        "importantly"
+      ],
+      "first_ms": 1.0176999785471708,
+      "warm_median_ms": 0.9424000018043444,
+      "target_top1": true,
+      "target_top3": true
+    },
+    {
+      "id": "completion-15",
+      "kind": "completion",
+      "text": "probab",
+      "targets": [
+        "probably",
+        "probable"
+      ],
+      "prefix": "probab",
+      "context_ids": [
+        1
+      ],
+      "suggestions": [
+        "probably",
+        "probability",
+        "probable"
+      ],
+      "first_ms": 0.960400007897988,
+      "warm_median_ms": 1.0181999969063327,
+      "target_top1": true,
+      "target_top3": true
+    },
+    {
+      "id": "completion-16",
+      "kind": "completion",
+      "text": "thank you for your supp",
+      "targets": [
+        "support"
+      ],
+      "prefix": "supp",
+      "context_ids": [
+        1,
+        443,
+        330,
+        339,
+        356
+      ],
+      "suggestions": [
+        "support",
+        "supportive",
+        "supporting",
+        "supporters",
+        "supported",
+        "supplies"
+      ],
+      "first_ms": 1.5044999890960753,
+      "warm_median_ms": 1.51344999903813,
+      "target_top1": true,
+      "target_top3": true
+    },
+    {
+      "id": "completion-17",
+      "kind": "completion",
+      "text": "let me kn",
+      "targets": [
+        "know"
+      ],
+      "prefix": "kn",
+      "context_ids": [
+        1,
+        414,
+        343
+      ],
+      "suggestions": [
+        "know",
+        "kno",
+        "knw",
+        "knock",
+        "knit",
+        "knew"
+      ],
+      "first_ms": 1.3682999997399747,
+      "warm_median_ms": 1.2193999864393845,
+      "target_top1": true,
+      "target_top3": true
+    },
+    {
+      "id": "completion-18",
+      "kind": "completion",
+      "text": "at the beginn",
+      "targets": [
+        "beginning"
+      ],
+      "prefix": "beginn",
+      "context_ids": [
+        1,
+        367,
+        332
+      ],
+      "suggestions": [
+        "beginning",
+        "beginner's",
+        "beginner",
+        "beginners"
+      ],
+      "first_ms": 1.2607999960891902,
+      "warm_median_ms": 1.7333499999949709,
+      "target_top1": true,
+      "target_top3": true
+    },
+    {
+      "id": "completion-19",
+      "kind": "completion",
+      "text": "I will resp",
+      "targets": [
+        "respond",
+        "response"
+      ],
+      "prefix": "resp",
+      "context_ids": [
+        1,
+        331,
+        397
+      ],
+      "suggestions": [
+        "respect",
+        "respond",
+        "responsible",
+        "response",
+        "respected",
+        "responsibility"
+      ],
+      "first_ms": 1.5192000137176365,
+      "warm_median_ms": 1.4599499991163611,
+      "target_top1": false,
+      "target_top3": true
+    },
+    {
+      "id": "completion-20",
+      "kind": "completion",
+      "text": "I am avail",
+      "targets": [
+        "available"
+      ],
+      "prefix": "avail",
+      "context_ids": [
+        1,
+        331,
+        457
+      ],
+      "suggestions": [
+        "available",
+        "availability",
+        "avail"
+      ],
+      "first_ms": 1.1710000107996166,
+      "warm_median_ms": 1.1126500030513853,
+      "target_top1": true,
+      "target_top3": true
+    },
+    {
+      "id": "edge-01",
+      "kind": "edge",
+      "text": "",
+      "targets": [],
+      "prefix": "",
+      "context_ids": [
+        1
+      ],
+      "suggestions": [
+        "i",
+        "yeah",
+        "i'm",
+        "well",
+        "that's",
+        "hey"
+      ],
+      "first_ms": 7.536199991591275,
+      "warm_median_ms": 7.228299989947118,
+      "target_top1": false,
+      "target_top3": false
+    },
+    {
+      "id": "edge-02",
+      "kind": "edge",
+      "text": "a",
+      "targets": [],
+      "prefix": "a",
+      "context_ids": [
+        1
+      ],
+      "suggestions": [
+        "absolutely",
+        "and",
+        "alright",
+        "a",
+        "are",
+        "all"
+      ],
+      "first_ms": 1.6892999992705882,
+      "warm_median_ms": 1.7613000090932474,
+      "target_top1": false,
+      "target_top3": false
+    },
+    {
+      "id": "edge-03",
+      "kind": "edge",
+      "text": "123 ",
+      "targets": [],
+      "prefix": "",
+      "context_ids": [
+        1,
+        4
+      ],
+      "suggestions": [
+        "pm",
+        "is",
+        "adults",
+        "people",
+        "to",
+        "am"
+      ],
+      "first_ms": 7.71770000574179,
+      "warm_median_ms": 7.529750015237369,
+      "target_top1": false,
+      "target_top3": false
+    },
+    {
+      "id": "edge-04",
+      "kind": "edge",
+      "text": "12:30 ",
+      "targets": [],
+      "prefix": "",
+      "context_ids": [
+        1,
+        4
+      ],
+      "suggestions": [
+        "pm",
+        "is",
+        "adults",
+        "people",
+        "to",
+        "am"
+      ],
+      "first_ms": 7.4767000041902065,
+      "warm_median_ms": 6.90424999629613,
+      "target_top1": false,
+      "target_top3": false
+    },
+    {
+      "id": "edge-05",
+      "kind": "edge",
+      "text": "hello. ",
+      "targets": [],
+      "prefix": "",
+      "context_ids": [
+        1
+      ],
+      "suggestions": [
+        "i",
+        "yeah",
+        "i'm",
+        "well",
+        "that's",
+        "hey"
+      ],
+      "first_ms": 6.906199996592477,
+      "warm_median_ms": 7.344099998590536,
+      "target_top1": false,
+      "target_top3": false
+    },
+    {
+      "id": "edge-06",
+      "kind": "edge",
+      "text": "hello\n",
+      "targets": [],
+      "prefix": "",
+      "context_ids": [
+        1
+      ],
+      "suggestions": [
+        "i",
+        "yeah",
+        "i'm",
+        "well",
+        "that's",
+        "hey"
+      ],
+      "first_ms": 6.990699999732897,
+      "warm_median_ms": 6.921900014276616,
+      "target_top1": false,
+      "target_top3": false
+    },
+    {
+      "id": "edge-07",
+      "kind": "edge",
+      "text": "Hello, ",
+      "targets": [],
+      "prefix": "",
+      "context_ids": [
+        1,
+        586,
+        7
+      ],
+      "suggestions": [
+        "i",
+        "i'm",
+        "can",
+        "i'd",
+        "could",
+        "my"
+      ],
+      "first_ms": 7.225099980132654,
+      "warm_median_ms": 7.516049998230301,
+      "target_top1": false,
+      "target_top3": false
+    },
+    {
+      "id": "edge-08",
+      "kind": "edge",
+      "text": "hello! ",
+      "targets": [],
+      "prefix": "",
+      "context_ids": [
+        1
+      ],
+      "suggestions": [
+        "i",
+        "yeah",
+        "i'm",
+        "well",
+        "that's",
+        "hey"
+      ],
+      "first_ms": 6.676299992250279,
+      "warm_median_ms": 6.875800012494437,
+      "target_top1": false,
+      "target_top3": false
+    },
+    {
+      "id": "edge-09",
+      "kind": "edge",
+      "text": "xqznotawordprefix",
+      "targets": [],
+      "prefix": "xqznotawordprefix",
+      "context_ids": [
+        1
+      ],
+      "suggestions": [],
+      "first_ms": 1.3893000141251832,
+      "warm_median_ms": 1.2061500019626692,
+      "target_top1": false,
+      "target_top3": false
+    },
+    {
+      "id": "edge-10",
+      "kind": "edge",
+      "text": "I’m ",
+      "targets": [],
+      "prefix": "",
+      "context_ids": [
+        1,
+        345
+      ],
+      "suggestions": [
+        "sorry",
+        "not",
+        "so",
+        "just",
+        "doing",
+        "good"
+      ],
+      "first_ms": 7.9289999848697335,
+      "warm_median_ms": 7.040199998300523,
+      "target_top1": false,
+      "target_top3": false
+    },
+    {
+      "id": "edge-11",
+      "kind": "edge",
+      "text": "I don’t ",
+      "targets": [],
+      "prefix": "",
+      "context_ids": [
+        1,
+        331,
+        366
+      ],
+      "suggestions": [
+        "know",
+        "want",
+        "really",
+        "think",
+        "understand",
+        "care"
+      ],
+      "first_ms": 6.894399994052947,
+      "warm_median_ms": 7.260250014951453,
+      "target_top1": false,
+      "target_top3": false
+    },
+    {
+      "id": "edge-12",
+      "kind": "edge",
+      "text": "API v2 ",
+      "targets": [],
+      "prefix": "",
+      "context_ids": [
+        1,
+        3431,
+        1303,
+        4
+      ],
+      "suggestions": [
+        "pm",
+        "st",
+        "am",
+        "is",
+        "to",
+        "th"
+      ],
+      "first_ms": 7.072300009895116,
+      "warm_median_ms": 7.150449993787333,
+      "target_top1": false,
+      "target_top3": false
+    },
+    {
+      "id": "edge-13",
+      "kind": "edge",
+      "text": "😀 ",
+      "targets": [],
+      "prefix": "",
+      "context_ids": [
+        1,
+        3
+      ],
+      "suggestions": [
+        "is",
+        "i",
+        "you",
+        "and",
+        "are",
+        "sounds"
+      ],
+      "first_ms": 7.649200008017942,
+      "warm_median_ms": 7.392650004476309,
+      "target_top1": false,
+      "target_top3": false
+    },
+    {
+      "id": "edge-14",
+      "kind": "edge",
+      "text": "email@example.com ",
+      "targets": [],
+      "prefix": "",
+      "context_ids": [
+        1,
+        3047
+      ],
+      "suggestions": [
+        "canteen",
+        "mrt",
+        "reaching",
+        "meeting",
+        "simei",
+        "plaza"
+      ],
+      "first_ms": 6.784900004277006,
+      "warm_median_ms": 7.466849987395108,
+      "target_top1": false,
+      "target_top3": false
+    },
+    {
+      "id": "edge-15",
+      "kind": "edge",
+      "text": "中国",
+      "targets": [],
+      "prefix": "中国",
+      "context_ids": [
+        1
+      ],
+      "suggestions": [],
+      "first_ms": 1.3824999914504588,
+      "warm_median_ms": 1.3730999926337972,
+      "target_top1": false,
+      "target_top3": false
+    },
+    {
+      "id": "edge-16",
+      "kind": "edge",
+      "text": "hello 中文 ",
+      "targets": [],
+      "prefix": "",
+      "context_ids": [
+        1,
+        586,
+        3
+      ],
+      "suggestions": [
+        "i",
+        "assistant",
+        "how",
+        "is",
+        "to",
+        "please"
+      ],
+      "first_ms": 6.951799994567409,
+      "warm_median_ms": 7.496749996789731,
+      "target_top1": false,
+      "target_top3": false
+    }
+  ],
+  "phone_microphone_or_editor_used": false
+}

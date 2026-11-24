@@ -44,6 +44,7 @@ object ThemeManager {
             return _activeFindings
         }
 
+    @Synchronized
     private fun ensureActiveTheme() {
         if (!::_activeTheme.isInitialized) {
             _activeTheme = evaluateActiveTheme()
@@ -127,6 +128,7 @@ object ThemeManager {
         return newTheme
     }
 
+    @Synchronized
     private fun applyTheme(resolvedTheme: ResolvedTheme) {
         val theme = resolvedTheme.theme
         // The findings describe the file this load read; they are not tied to the
@@ -154,8 +156,9 @@ object ThemeManager {
     suspend fun selectTheme(configId: String): String {
         val resolvedTheme = withContext(Dispatchers.IO) { getThemeById(configId) }
         return withContext(Dispatchers.Main.immediate) {
-            applyTheme(resolvedTheme)
+            // Listeners must observe the same id as the newly attached scope.
             prefs.selectedTheme.setValue(resolvedTheme.configId)
+            applyTheme(resolvedTheme)
             resolvedTheme.configId
         }
     }

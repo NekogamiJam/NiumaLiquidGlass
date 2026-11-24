@@ -93,6 +93,13 @@ class TrimeApplication : Application() {
 
     override fun onCreate() {
         super.onCreate()
+        // Engine regression has its own native process and fresh test directory.
+        // Do not touch IME preferences, clipboard DBs, PID tracking or background work there.
+        // Isolated debug probes must not initialize the live IME or process-local startup providers.
+        if (BuildConfig.DEBUG && (getProcessName().endsWith(":enginecheck") || getProcessName().endsWith(":offlineasrcheck"))) {
+            instance = this
+            return
+        }
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N && !userManager.isUserUnlocked) {
             isDirectBootMode = true
             registerReceiver(unlockReceiver, IntentFilter(Intent.ACTION_USER_UNLOCKED))

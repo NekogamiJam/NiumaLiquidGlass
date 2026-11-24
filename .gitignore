@@ -481,3 +481,20 @@ app/src/main/jni/boost/
 # kotlin
 .kotlin
 
+### Niuma Liquid Glass additions ###
+__pycache__/
+.gradle-cache/
+out/
+ui-test-host/build/
+ui-test-host/out/
+ui-test-host/keys/
+runtime-tests/*.json
+vendor/staged-official-assets.json
+app/prebuilt/arm64-v8a/librime_jni.so
+app/src/main/assets/offline-asr/sensevoice.int8.onnx
+app/src/main/assets/offline-asr/silero_vad.onnx
+app/src/main/jniLibs/arm64-v8a/libonnxruntime.so
+app/src/main/jniLibs/arm64-v8a/libsherpa-onnx-c-api.so
+/tools/binaries/
+!vendor/*.apk
+!vendor/*.zip

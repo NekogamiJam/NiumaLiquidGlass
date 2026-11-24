@@ -1,0 +1,112 @@
+{
+  "schemaVersion": 1,
+  "upstream": {
+    "trimeRepository": "https://github.com/osfans/trime",
+    "trimeVersion": "v3.3.13",
+    "trimeCommit": "b5cad1a49095a3652e9188982de400ca3a653f37",
+    "librimeRepository": "https://github.com/rime/librime",
+    "librimeCommit": "56737cd29a4d393a104a2098ece3697aa2810465",
+    "evidence": {
+      "librimeTreeApi": "https://api.github.com/repos/rime/librime/git/trees/56737cd29a4d393a104a2098ece3697aa2810465?recursive=1",
+      "librimeGitmodulesRaw": "https://raw.githubusercontent.com/rime/librime/56737cd29a4d393a104a2098ece3697aa2810465/.gitmodules",
+      "librimeGitmodulesBlobSha1": "ca546c4ef6a63ac63a7628596eb556dfd2abe476",
+      "librimeCmakeRaw": "https://raw.githubusercontent.com/rime/librime/56737cd29a4d393a104a2098ece3697aa2810465/CMakeLists.txt",
+      "librimeCmakeBlobSha1": "f0530cc001f13c09cbf4387055f81f97d95e4818",
+      "librimeDepsMkRaw": "https://raw.githubusercontent.com/rime/librime/56737cd29a4d393a104a2098ece3697aa2810465/deps.mk",
+      "librimeDepsMkBlobSha1": "5fb2c6d8b35a29064f2c943b7acc9953f30203b4",
+      "luaDepsTreeApi": "https://api.github.com/repos/hchunhui/librime-lua/git/trees/9e5bb71db1544913f8005dadc3df8439c00d08b7"
+    }
+  },
+  "librimeNestedGitlinks": [
+    {
+      "path": "deps/glog",
+      "repository": "https://github.com/google/glog",
+      "commit": "7b134a5c82c0c0b5698bb6bf7a835b230c5638e4",
+      "gitlinkMode": "160000",
+      "gitmodulesEntry": "glog",
+      "licenseStatus": "not inventoried in this task"
+    },
+    {
+      "path": "deps/googletest",
+      "repository": "https://github.com/google/googletest",
+      "commit": "063de7e9578f82b369302001269680b4b1553359",
+      "gitlinkMode": "160000",
+      "gitmodulesEntry": "googletest",
+      "licenseStatus": "not inventoried in this task; test dependency in deps.mk"
+    },
+    {
+      "path": "deps/leveldb",
+      "repository": "https://github.com/google/leveldb",
+      "commit": "bb74ef739973a70ca9f0d90788a1da89b788c0ad",
+      "gitlinkMode": "160000",
+      "gitmodulesEntry": "leveldb",
+      "licenseStatus": "not inventoried in this task"
+    },
+    {
+      "path": "deps/marisa-trie",
+      "repository": "https://github.com/s-yata/marisa-trie",
+      "commit": "3e87d53b78e15f2f43783d5e376561a8c9722051",
+      "gitlinkMode": "160000",
+      "gitmodulesEntry": "marisa-trie",
+      "licenseStatus": "not inventoried in this task"
+    },
+    {
+      "path": "deps/opencc",
+      "repository": "https://github.com/BYVoid/OpenCC",
+      "commit": "025f371dc76b598d77384fbdab90c937471844d8",
+      "gitlinkMode": "160000",
+      "gitmodulesEntry": "opencc",
+      "licenseStatus": "not inventoried in this task"
+    },
+    {
+      "path": "deps/yaml-cpp",
+      "repository": "https://github.com/jbeder/yaml-cpp",
+      "commit": "56e3bb550c91fd7005566f19c079cb7a503223cf",
+      "gitlinkMode": "160000",
+      "gitmodulesEntry": "yaml-cpp",
+      "licenseStatus": "not inventoried in this task"
+    }
+  ],
+  "librimeCmakeDependencies": {
+    "source": "CMakeLists.txt at the pinned librime commit; build targets/options vary by platform",
+    "findPackageRequirements": [
+      {"name": "Boost", "version": "1.74.0", "condition": "CMAKE_SYSTEM_NAME is Linux; regex component REQUIRED"},
+      {"name": "Boost", "version": "1.77.0", "condition": "non-Linux path uses find_package(Boost 1.77.0) without REQUIRED"},
+      {"name": "Glog", "condition": "required when ENABLE_LOGGING=ON (default); glog submodule/build path is available"},
+      {"name": "YamlCpp", "condition": "REQUIRED"},
+      {"name": "LevelDb", "condition": "REQUIRED"},
+      {"name": "Marisa", "condition": "REQUIRED"},
+      {"name": "Opencc", "condition": "REQUIRED"},
+      {"name": "Gflags", "condition": "optional lookup under ENABLE_LOGGING"},
+      {"name": "GTest", "condition": "REQUIRED when BUILD_TEST=ON (default)"},
+      {"name": "Threads", "condition": "find_package(Threads)"}
+    ],
+    "depsMk": {
+      "buildsFromPinnedSubmodules": ["glog", "googletest", "leveldb", "marisa-trie", "opencc", "yaml-cpp"],
+      "notes": "deps.mk builds these source checkouts locally with CMake install targets. It records no third-party archive download URLs or upstream release versions. This is upstream librime's generic build logic, not proof Trime's Android build uses the same dependency configuration."
+    },
+    "unversionedOrExternal": [
+      {"name": "Boost", "status": "version floor is in librime CMakeLists, but no exact source commit/archive URL is pinned here"},
+      {"name": "Gflags", "status": "optional CMake discovery; no source pin identified in librime .gitmodules/deps.mk"},
+      {"name": "Threads", "status": "platform toolchain/runtime dependency, not a librime gitlink"}
+    ]
+  },
+  "luaThirdpartyInventory": {
+    "repository": "https://github.com/hchunhui/librime-lua",
+    "commit": "9e5bb71db1544913f8005dadc3df8439c00d08b7",
+    "topLevelTrees": [
+      {"path": "lua5.3", "tree": "e1cf0abf2e4860102e3b33978e91d14b46bf7d4e", "versionFromLuaHeader": "5.3", "copyright": "Lua.org, PUC-Rio, 1994-2018", "license": "MIT license text embedded at end of lua.h", "representativeFile": "lua5.3/lua.h", "blobSha1": "c236e360957949816ff78973f8695300b2a63b96", "rawUrl": "https://raw.githubusercontent.com/hchunhui/librime-lua/9e5bb71db1544913f8005dadc3df8439c00d08b7/lua5.3/lua.h"},
+      {"path": "lua5.4", "tree": "00f9c95090f89664c66b71e2fad69b0947bd81cf", "versionFromLuaHeader": "5.4.9", "copyright": "Lua.org, PUC-Rio, 1994-2026", "license": "MIT license text embedded at end of lua.h", "representativeFile": "lua5.4/lua.h", "blobSha1": "211b97cff5ee00c0adacf73b3cfe8a3a3a4ca5b9", "rawUrl": "https://raw.githubusercontent.com/hchunhui/librime-lua/9e5bb71db1544913f8005dadc3df8439c00d08b7/lua5.4/lua.h"},
+      {"path": "lua5.5", "tree": "fba1a5c317ce61c83199e197e661376b70f8293b", "versionFromLuaHeader": "5.5.1", "copyright": "Lua.org, PUC-Rio, 1994-2026", "license": "MIT license text embedded at end of lua.h", "representativeFile": "lua5.5/lua.h", "blobSha1": "6deaed49c222c4b1211cfb8f05a22c0787b4934d", "rawUrl": "https://raw.githubusercontent.com/hchunhui/librime-lua/9e5bb71db1544913f8005dadc3df8439c00d08b7/lua5.5/lua.h"}
+    ],
+    "licenseConclusion": "All three pinned top-level Lua version trees contain lua.h whose end-of-file notice states the Lua.org, PUC-Rio copyright and standard MIT permission/warranty text. The repository-root listing had no LICENSE; the per-file headers provide the relevant notice evidence for these representative core headers. This does not establish that every file has identical notices or that no separately copyrighted components exist."
+  },
+  "coverageAndLimitations": [
+    "This document supplements, and does not replace, the ten direct Trime gitlinks in vendor/native-source-pins.json.",
+    "The six librime dependency gitlinks are pinned by librime commit 56737cd29a4d393a104a2098ece3697aa2810465 and exact tree entries, but no source trees were downloaded and their nested dependencies/licenses were not recursively audited.",
+    "The three Lua trees are identified and their representative lua.h file headers are verified; per-file notice coverage across every C/header file remains unverified.",
+    "CMake requirements and deps.mk are upstream source metadata; they do not prove which dependency versions/options were used to produce Trime's distributed Android native binaries.",
+    "The ten direct Trime pins plus six librime nested pins are not the complete native corresponding-source/dependency graph. In particular Boost and toolchain inputs are not exactly pinned here; other plugin-specific build inputs may remain. This inventory does not prove that the precompiled JNI libraries are reproducible or byte-identical.",
+    "No source trees were cloned or downloaded; only small text metadata/headers were fetched. No build, install, ADB, fork, or license acceptance was performed. This inventory is provenance evidence, not legal advice or a conclusion that redistribution requirements are satisfied."
+  ]
+}

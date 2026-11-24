@@ -1,0 +1,92 @@
+[
+  {
+    "name": "NativeGlassRenderer.kt",
+    "sha256": "9C861786672C72F4A3F5143EA9F83594D32A3E06FE2A6809C715F3FEDDCABCFD",
+    "source": "custom-src/NativeGlassRenderer.kt",
+    "destination": "app/src/main/java/com/osfans/trime/ime/glass/NativeGlassRenderer.kt"
+  },
+  {
+    "name": "GlassInputPanelController.kt",
+    "sha256": "2DFA9AF93FF6BBF2EA9FF589DB2745AB9B3A8133188A8C698C7D595EB4F071C0",
+    "source": "custom-src/GlassInputPanelController.kt",
+    "destination": "app/src/main/java/com/osfans/trime/ime/glass/GlassInputPanelController.kt"
+  },
+  {
+    "name": "MaterialApplyGate.kt",
+    "sha256": "5187656F6FBF9BE79C9F5C06906F8E1A4402186536AE10F935B3D767F875130F",
+    "source": "custom-src/MaterialApplyGate.kt",
+    "destination": "app/src/main/java/com/osfans/trime/ime/glass/MaterialApplyGate.kt"
+  },
+  {
+    "name": "GlassDiagnosticWriter.kt",
+    "sha256": "F5F904AF4C7374AC17DE9758E632AE228A6CEA8D8C3E2EFE4D9758A10EFFFA35",
+    "source": "custom-src/GlassDiagnosticWriter.kt",
+    "destination": "app/src/main/java/com/osfans/trime/ime/glass/GlassDiagnosticWriter.kt"
+  },
+  {
+    "name": "LiquidGlassStyle.kt",
+    "sha256": "5A2A2F2208F283B256237E1D101A49945825F8F9868D84BEEA822F426A3FE595",
+    "source": "custom-src/LiquidGlassStyle.kt",
+    "destination": "app/src/main/java/com/osfans/trime/ime/glass/LiquidGlassStyle.kt"
+  },
+  {
+    "name": "PanelEdgeGlints.kt",
+    "sha256": "61F645B9CB9FE37E37F65B290FFBACD7671AA2C28AC702F8861B313C602CA72A",
+    "source": "custom-src/PanelEdgeGlints.kt",
+    "destination": "app/src/main/java/com/osfans/trime/ime/glass/PanelEdgeGlints.kt"
+  },
+  {
+    "name": "GlassKeySurface.kt",
+    "sha256": "1516909DAE9FB2EC19B69AE41637955FF5898A02B828DB25D11A500FACB02735",
+    "source": "custom-src/GlassKeySurface.kt",
+    "destination": "app/src/main/java/com/osfans/trime/ime/glass/GlassKeySurface.kt"
+  },
+  {
+    "name": "CandidateStripAppearance.kt",
+    "sha256": "3C0F0D407F96F057D55FCAE1F0472F7A711272728ABD4F9583648672BEA982A9",
+    "source": "custom-src/CandidateStripAppearance.kt",
+    "destination": "app/src/main/java/com/osfans/trime/ime/glass/CandidateStripAppearance.kt"
+  },
+  {
+    "name": "SystemVoiceInput.kt",
+    "sha256": "28083F0180AB894470BA115BD797CC6C9B18BE6695D0FFE25F9B551459D32D4B",
+    "source": "custom-src/SystemVoiceInput.kt",
+    "destination": "app/src/main/java/com/osfans/trime/ime/voice/SystemVoiceInput.kt"
+  },
+  {
+    "name": "VoicePermissionActivity.kt",
+    "sha256": "4D33A1770EC8612DA8A042017BE6800C1FADD87CD412E7DCE566C48054A0F820",
+    "source": "custom-src/VoicePermissionActivity.kt",
+    "destination": "app/src/main/java/com/osfans/trime/ime/voice/VoicePermissionActivity.kt"
+  },
+  {
+    "name": "NiumaVoiceController.kt",
+    "sha256": "0C6B3D83CEA55C8820D562E57003E716DAB1D9D0CC051D89586DDB3F2908F0ED",
+    "source": "custom-src/NiumaVoiceController.kt",
+    "destination": "app/src/main/java/com/osfans/trime/ime/voice/NiumaVoiceController.kt"
+  },
+  {
+    "name": "LocalAsrNative.kt",
+    "sha256": "25FE66086A24623E472E36EAD8C47AE19FF77491AFFE97CCB1AE81FE38D5BA4B",
+    "source": "custom-src/LocalAsrNative.kt",
+    "destination": "app/src/main/java/com/osfans/trime/ime/voice/LocalAsrNative.kt"
+  },
+  {
+    "name": "OfflineAsrModels.kt",
+    "sha256": "CAE7B8AFB1797E855E93FE44F334823E4EFD6E950AF763BD3BE1D414AADDF5AC",
+    "source": "custom-src/OfflineAsrModels.kt",
+    "destination": "app/src/main/java/com/osfans/trime/ime/voice/OfflineAsrModels.kt"
+  },
+  {
+    "name": "OfflineTranscriptPolicy.kt",
+    "sha256": "9480BFBC2D3AA0A236C4C53A3E9101B18D49F40AE2387A6B29A52D209AC22144",
+    "source": "custom-src/OfflineTranscriptPolicy.kt",
+    "destination": "app/src/main/java/com/osfans/trime/ime/voice/OfflineTranscriptPolicy.kt"
+  },
+  {
+    "name": "OfflineVoiceInput.kt",
+    "sha256": "5CC8F360A0E33F27EEC9B41E336B46B70889E6E48B08EEA686524E97CF9597F1",
+    "source": "custom-src/OfflineVoiceInput.kt",
+    "destination": "app/src/main/java/com/osfans/trime/ime/voice/OfflineVoiceInput.kt"
+  }
+]

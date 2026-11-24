@@ -1,0 +1,31 @@
+{
+  "format": 1,
+  "purpose": "Self-contained current build inputs; hash-verified from the already staged signed application assets, no benchmark directory dependency.",
+  "files": {
+    "sense.int8.onnx": {
+      "source": "app/src/main/assets/offline-asr/sensevoice.int8.onnx",
+      "bytes": 239233841,
+      "sha256": "c71f0ce00bec95b07744e116345e33d8cbbe08cef896382cf907bf4b51a2cd51"
+    },
+    "sense.tokens.txt": {
+      "source": "app/src/main/assets/offline-asr/tokens.txt",
+      "bytes": 315894,
+      "sha256": "f449eb28dc567533d7fa59be34e2abca8784f771850c78a47fb731a31429a1dc"
+    },
+    "silero_vad.onnx": {
+      "source": "app/src/main/assets/offline-asr/silero_vad.onnx",
+      "bytes": 643854,
+      "sha256": "9e2449e1087496d8d4caba907f23e0bd3f78d91fa552479bb9c23ac09cbb1fd6"
+    },
+    "libsherpa-onnx-c-api.so": {
+      "source": "app/src/main/jniLibs/arm64-v8a/libsherpa-onnx-c-api.so",
+      "bytes": 4689352,
+      "sha256": "49d5e329408a6c93040d2ab76e86db4fd438f243c5f87e575870897fa6249948"
+    },
+    "libonnxruntime.so": {
+      "source": "app/src/main/jniLibs/arm64-v8a/libonnxruntime.so",
+      "bytes": 15988232,
+      "sha256": "c7c0e6b0f9c364a4df4bfc9a3a3576b691899e96f4d9beb60f3b3a7ce4bf572c"
+    }
+  }
+}

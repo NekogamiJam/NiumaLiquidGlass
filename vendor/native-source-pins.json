@@ -1,0 +1,200 @@
+{
+  "schemaVersion": 1,
+  "upstream": {
+    "repository": "https://github.com/osfans/trime",
+    "version": "v3.3.13",
+    "commit": "b5cad1a49095a3652e9188982de400ca3a653f37",
+    "commitUrl": "https://github.com/osfans/trime/commit/b5cad1a49095a3652e9188982de400ca3a653f37",
+    "releaseUrl": "https://github.com/osfans/trime/releases/tag/v3.3.13",
+    "releaseApiUrl": "https://api.github.com/repos/osfans/trime/releases/tags/v3.3.13",
+    "treeApiUrl": "https://api.github.com/repos/osfans/trime/git/trees/b5cad1a49095a3652e9188982de400ca3a653f37?recursive=1",
+    "treeTruncated": false,
+    "sourceArchives": [
+      "https://github.com/osfans/trime/archive/refs/tags/v3.3.13.zip",
+      "https://github.com/osfans/trime/archive/refs/tags/v3.3.13.tar.gz"
+    ],
+    "sourceArchiveCaveat": "GitHub-generated frontend source archives contain the Trime repository files but do not expand gitlinks; they are not a complete copy of the native JNI/dependency source graph."
+  },
+  "releaseApks": [
+    {
+      "name": "com.osfans.trime-v3.3.13-0-gb5cad1a4-arm64-v8a-release.apk",
+      "url": "https://github.com/osfans/trime/releases/download/v3.3.13/com.osfans.trime-v3.3.13-0-gb5cad1a4-arm64-v8a-release.apk",
+      "sha256": "e7535ea421a25962eb2ea37c46ff867838e69d33ba6d935876ab84d108de5020",
+      "size": 9252039
+    },
+    {
+      "name": "com.osfans.trime-v3.3.13-0-gb5cad1a4-armeabi-v7a-release.apk",
+      "url": "https://github.com/osfans/trime/releases/download/v3.3.13/com.osfans.trime-v3.3.13-0-gb5cad1a4-armeabi-v7a-release.apk",
+      "sha256": "fb8ef159021c4ad95b98e19835a163afe60db1618095cfdc504ec7fe58331edd",
+      "size": 9005196
+    },
+    {
+      "name": "com.osfans.trime-v3.3.13-0-gb5cad1a4-x86-release.apk",
+      "url": "https://github.com/osfans/trime/releases/download/v3.3.13/com.osfans.trime-v3.3.13-0-gb5cad1a4-x86-release.apk",
+      "sha256": "342e79b531122702100b1b0f7116f92bd05ff0cfe11a247f6af26c281301b9bc",
+      "size": 9458333
+    },
+    {
+      "name": "com.osfans.trime-v3.3.13-0-gb5cad1a4-x86_64-release.apk",
+      "url": "https://github.com/osfans/trime/releases/download/v3.3.13/com.osfans.trime-v3.3.13-0-gb5cad1a4-x86_64-release.apk",
+      "sha256": "d3bfbc84a99d77e150e9918ddb9d1a348a730bdbbbea5c0c1ee4375356a6f221",
+      "size": 9332292
+    }
+  ],
+  "gitlinks": [
+    {
+      "name": "snappy",
+      "path": "app/src/main/jni/snappy",
+      "repository": "https://github.com/google/snappy",
+      "commit": "9c28114a38866f6deeaa826db918293bc28ae410",
+      "commitUrl": "https://github.com/google/snappy/commit/9c28114a38866f6deeaa826db918293bc28ae410",
+      "gitlinkMode": "160000",
+      "license": {
+        "file": "COPYING",
+        "url": "https://github.com/google/snappy/blob/9c28114a38866f6deeaa826db918293bc28ae410/COPYING",
+        "blob": "bd0e5971dbf09bd6b3213ea7248383d10f26dea2",
+        "identifier": "BSD-3-Clause (COPYING also identifies separately licensed testdata items)"
+      }
+    },
+    {
+      "name": "librime",
+      "path": "app/src/main/jni/librime",
+      "repository": "https://github.com/rime/librime",
+      "commit": "56737cd29a4d393a104a2098ece3697aa2810465",
+      "commitUrl": "https://github.com/rime/librime/commit/56737cd29a4d393a104a2098ece3697aa2810465",
+      "gitlinkMode": "160000",
+      "license": {
+        "file": "LICENSE",
+        "url": "https://github.com/rime/librime/blob/56737cd29a4d393a104a2098ece3697aa2810465/LICENSE",
+        "blob": "f05b7c297121afc7e6115d8e4eada27d049894a1",
+        "identifier": "BSD-3-Clause"
+      }
+    },
+    {
+      "name": "librime-lua",
+      "path": "app/src/main/jni/librime-lua",
+      "repository": "https://github.com/hchunhui/librime-lua",
+      "commit": "6da5d6cedb853380ed1b5b9b6979cb1a9c028353",
+      "commitUrl": "https://github.com/hchunhui/librime-lua/commit/6da5d6cedb853380ed1b5b9b6979cb1a9c028353",
+      "gitlinkMode": "160000",
+      "license": {
+        "file": "LICENSE",
+        "url": "https://github.com/hchunhui/librime-lua/blob/6da5d6cedb853380ed1b5b9b6979cb1a9c028353/LICENSE",
+        "blob": "3be95a67fc6bd90d7c769acdf897b3901605cf00",
+        "identifier": "BSD-3-Clause"
+      }
+    },
+    {
+      "name": "librime-lua-deps",
+      "path": "app/src/main/jni/librime-lua-deps",
+      "repository": "https://github.com/hchunhui/librime-lua",
+      "commit": "9e5bb71db1544913f8005dadc3df8439c00d08b7",
+      "commitUrl": "https://github.com/hchunhui/librime-lua/commit/9e5bb71db1544913f8005dadc3df8439c00d08b7",
+      "gitlinkMode": "160000",
+      "submoduleBranchHint": "thirdparty",
+      "license": {
+        "file": null,
+        "url": null,
+        "blob": null,
+        "identifier": "Not found at repository root in pinned tree listing; no license conclusion. This pin vendors Lua source trees; check individual upstream file headers and licensing before redistribution."
+      }
+    },
+    {
+      "name": "librime-octagram",
+      "path": "app/src/main/jni/librime-octagram",
+      "repository": "https://github.com/lotem/librime-octagram",
+      "commit": "bd12863f45fbbd5c7db06d5ec8be8987b10253bf",
+      "commitUrl": "https://github.com/lotem/librime-octagram/commit/bd12863f45fbbd5c7db06d5ec8be8987b10253bf",
+      "gitlinkMode": "160000",
+      "license": {
+        "file": "LICENSE",
+        "url": "https://github.com/lotem/librime-octagram/blob/bd12863f45fbbd5c7db06d5ec8be8987b10253bf/LICENSE",
+        "blob": "94a9ed024d3859793618152ea559a168bbcbb5e2",
+        "identifier": "GPL-3.0-only"
+      }
+    },
+    {
+      "name": "librime-predict",
+      "path": "app/src/main/jni/librime-predict",
+      "repository": "https://github.com/rime/librime-predict",
+      "commit": "67c2881914a0242fc14ec7d6877782771b75800c",
+      "commitUrl": "https://github.com/rime/librime-predict/commit/67c2881914a0242fc14ec7d6877782771b75800c",
+      "gitlinkMode": "160000",
+      "license": {
+        "file": "LICENSE",
+        "url": "https://github.com/rime/librime-predict/blob/67c2881914a0242fc14ec7d6877782771b75800c/LICENSE",
+        "blob": "98b5bc347734e6da48cfb50e384589345e5b541b",
+        "identifier": "BSD-3-Clause"
+      }
+    },
+    {
+      "name": "prelude",
+      "path": "app/data/rime/prelude",
+      "repository": "https://github.com/rime/rime-prelude",
+      "commit": "3803f09458072e03b9ed396692ce7e1d35c88c95",
+      "commitUrl": "https://github.com/rime/rime-prelude/commit/3803f09458072e03b9ed396692ce7e1d35c88c95",
+      "gitlinkMode": "160000",
+      "license": {
+        "file": "LICENSE",
+        "url": "https://github.com/rime/rime-prelude/blob/3803f09458072e03b9ed396692ce7e1d35c88c95/LICENSE",
+        "blob": "65c5ca88a67c30becee01c5a8816d964b03862f9",
+        "identifier": "LGPL-3.0-only"
+      }
+    },
+    {
+      "name": "luna-pinyin",
+      "path": "app/data/rime/luna-pinyin",
+      "repository": "https://github.com/rime/rime-luna-pinyin",
+      "commit": "46acf03142c12b5aeed7002675046bf7255eed35",
+      "commitUrl": "https://github.com/rime/rime-luna-pinyin/commit/46acf03142c12b5aeed7002675046bf7255eed35",
+      "gitlinkMode": "160000",
+      "license": {
+        "file": "LICENSE",
+        "url": "https://github.com/rime/rime-luna-pinyin/blob/46acf03142c12b5aeed7002675046bf7255eed35/LICENSE",
+        "blob": "65c5ca88a67c30becee01c5a8816d964b03862f9",
+        "identifier": "LGPL-3.0-only"
+      }
+    },
+    {
+      "name": "stroke",
+      "path": "app/data/rime/stroke",
+      "repository": "https://github.com/rime/rime-stroke",
+      "commit": "7c9874c6b2e0b94947653e9a7de6f99623ff27e4",
+      "commitUrl": "https://github.com/rime/rime-stroke/commit/7c9874c6b2e0b94947653e9a7de6f99623ff27e4",
+      "gitlinkMode": "160000",
+      "license": {
+        "file": "LICENSE",
+        "url": "https://github.com/rime/rime-stroke/blob/7c9874c6b2e0b94947653e9a7de6f99623ff27e4/LICENSE",
+        "blob": "65c5ca88a67c30becee01c5a8816d964b03862f9",
+        "identifier": "LGPL-3.0-only"
+      }
+    },
+    {
+      "name": "essay",
+      "path": "app/data/rime/essay",
+      "repository": "https://github.com/rime/rime-essay",
+      "commit": "0766c929ec3e578c2c80861e988decd3703a1c3d",
+      "commitUrl": "https://github.com/rime/rime-essay/commit/0766c929ec3e578c2c80861e988decd3703a1c3d",
+      "gitlinkMode": "160000",
+      "license": {
+        "file": "LICENSE",
+        "url": "https://github.com/rime/rime-essay/blob/0766c929ec3e578c2c80861e988decd3703a1c3d/LICENSE",
+        "blob": "65c5ca88a67c30becee01c5a8816d964b03862f9",
+        "identifier": "LGPL-3.0-only"
+      }
+    }
+  ],
+  "nonGitlinkNativeSource": [
+    {
+      "path": "app/src/main/jni/librime_jni",
+      "kind": "ordinary directory in the Trime repository (not a gitlink)",
+      "sourceCommit": "b5cad1a49095a3652e9188982de400ca3a653f37"
+    }
+  ],
+  "scopeNotes": [
+    "Gitlink paths and object IDs are pinned by the recursive Trime tree at the commit above; .gitmodules at that revision supplies the remote repository URLs. The local .gitmodules was checked and matches the 10 listed remotes.",
+    "GitHub release metadata lists the four APK assets and SHA-256 digests above. APKs were not downloaded or inspected; the filename commit suffix matches the requested source commit prefix, but this is not a binary/source reproducibility attestation.",
+    "Pins enumerate Trime's direct gitlinks only. They do not recursively pin any gitlinks/dependencies inside those submodule repositories, nor establish a complete build recipe or prove byte-for-byte correspondence between source and release binaries.",
+    "License identifiers are best-effort labels from the actual pinned license text. This is inventory, not legal advice or acceptance of license terms; third-party subcomponents and vendored files may carry additional notices."
+  ]
+}

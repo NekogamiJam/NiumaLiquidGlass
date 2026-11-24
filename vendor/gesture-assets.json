@@ -1,0 +1,22 @@
+{
+  "code_count": 170277,
+  "files": {
+    "app/src/main/assets/niuma/niuma_code_paths.txt": {
+      "bytes": "834557",
+      "sha256": "f03d04be5b5619ae548b03dcfb6ce442023065f30eef64d3e090d9db4548194d"
+    },
+    "app/src/main/assets/niuma/niuma_z_transitions.json": {
+      "bytes": "306",
+      "sha256": "adbd70912e1f8ae376c65da991e9bfff3a36f7a3bc72f551e7ed1a85b95dc60d"
+    }
+  },
+  "format": 1,
+  "managed_by": "stage-gesture-data.py",
+  "schema_id": "niuma_glass",
+  "source_sha256": {
+    "app/src/debug/assets/niuma/debug_expected.json": "73f77da4d14535405d020b769b5c6ffe527a4ef8a36afdf052ec02937aa1d44e",
+    "input-data/niumawb.dict.yaml": "294e03d15a30f9a53ff78d7b9a5a0060f1dc71a2600ace0091d2765ed6ace92e",
+    "input-data/niumawb_fh.dict.yaml": "05b9981ba4aa20153012bc7762b137a0a29ed8bb8de7c17f2843a079a3466e2b",
+    "input-data/niumawb_zc.dict.yaml": "09eff608e8831aa704005aa50ef69450d1729d752e3c212edcc894db9f51aaa9"
+  }
+}

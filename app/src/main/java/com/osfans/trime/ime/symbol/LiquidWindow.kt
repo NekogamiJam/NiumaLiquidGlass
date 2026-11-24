@@ -5,7 +5,10 @@
 
 package com.osfans.trime.ime.symbol
 
+import android.view.Gravity
 import android.view.View
+import android.view.ViewGroup
+import android.widget.LinearLayout
 import androidx.core.content.ContextCompat
 import com.google.android.flexbox.FlexDirection
 import com.google.android.flexbox.FlexWrap
@@ -21,6 +24,7 @@ import com.osfans.trime.ime.keyboard.KeyboardWindow
 import com.osfans.trime.ime.window.BoardWindow
 import com.osfans.trime.ime.window.BoardWindowManager
 import com.osfans.trime.ime.window.ResidentWindow
+import splitties.dimensions.dp
 import org.kodein.di.DI
 import org.kodein.di.instance
 
@@ -88,7 +92,26 @@ class LiquidWindow(di: DI) :
         }
     }
 
-    override fun onCreateBarView() = liquidLayout.tabsUi.root
+    override fun onCreateBarView(): View = createBarView()
+
+    private fun createBarView(): View {
+        val tabs = liquidLayout.tabsUi.root
+        // The tabs RecyclerView can only have one parent, including when a bar is recreated.
+        (tabs.parent as? ViewGroup)?.removeView(tabs)
+
+        val candidateSize = context.dp(scope.theme.style.candidateViewHeight + scope.theme.style.commentHeight)
+
+        // Only the category tabs remain in the emoji bar. Returning to the main keyboard is
+        // the bottom-left 返回 key (fixed_key_bar / liquid_keyboard_exit) in LiquidLayout.
+        return LinearLayout(context).apply {
+            orientation = LinearLayout.HORIZONTAL
+            gravity = Gravity.CENTER_VERTICAL
+            addView(
+                tabs,
+                LinearLayout.LayoutParams(0, candidateSize, 1f),
+            )
+        }
+    }
 
     override fun onAttached() {}
 

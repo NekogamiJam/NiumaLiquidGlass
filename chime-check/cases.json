@@ -1,0 +1,690 @@
+{
+  "criteria_declared_before_inference": {
+    "common_next_top3_target_overlap_min": 0.6,
+    "known_completion_top3_target_overlap_min": 0.8,
+    "all_structural_prefix_sort_determinism_checks": true,
+    "note": "Small authored acceptance screen, not population accuracy. Targets are illustrative alternatives. Chinese must not use English model."
+  },
+  "cases": [
+    {
+      "id": "next-01",
+      "kind": "next",
+      "text": "thank ",
+      "targets": [
+        "you"
+      ]
+    },
+    {
+      "id": "next-02",
+      "kind": "next",
+      "text": "thank you ",
+      "targets": [
+        "for",
+        "so",
+        "very"
+      ]
+    },
+    {
+      "id": "next-03",
+      "kind": "next",
+      "text": "good ",
+      "targets": [
+        "morning",
+        "night",
+        "luck",
+        "day"
+      ]
+    },
+    {
+      "id": "next-04",
+      "kind": "next",
+      "text": "good morning ",
+      "targets": [
+        "everyone",
+        "to",
+        "sir"
+      ]
+    },
+    {
+      "id": "next-05",
+      "kind": "next",
+      "text": "see you ",
+      "targets": [
+        "soon",
+        "later",
+        "tomorrow"
+      ]
+    },
+    {
+      "id": "next-06",
+      "kind": "next",
+      "text": "how are ",
+      "targets": [
+        "you"
+      ]
+    },
+    {
+      "id": "next-07",
+      "kind": "next",
+      "text": "I love ",
+      "targets": [
+        "you",
+        "it",
+        "this"
+      ]
+    },
+    {
+      "id": "next-08",
+      "kind": "next",
+      "text": "have a nice ",
+      "targets": [
+        "day",
+        "weekend",
+        "time"
+      ]
+    },
+    {
+      "id": "next-09",
+      "kind": "next",
+      "text": "please let me ",
+      "targets": [
+        "know"
+      ]
+    },
+    {
+      "id": "next-10",
+      "kind": "next",
+      "text": "I would like to ",
+      "targets": [
+        "know",
+        "get",
+        "see",
+        "have",
+        "ask"
+      ]
+    },
+    {
+      "id": "next-11",
+      "kind": "next",
+      "text": "could you please ",
+      "targets": [
+        "help",
+        "tell",
+        "send",
+        "let"
+      ]
+    },
+    {
+      "id": "next-12",
+      "kind": "next",
+      "text": "looking forward to ",
+      "targets": [
+        "seeing",
+        "hearing",
+        "it"
+      ]
+    },
+    {
+      "id": "next-13",
+      "kind": "next",
+      "text": "as soon as ",
+      "targets": [
+        "possible",
+        "you",
+        "i"
+      ]
+    },
+    {
+      "id": "next-14",
+      "kind": "next",
+      "text": "if you have any ",
+      "targets": [
+        "questions",
+        "problems",
+        "other"
+      ]
+    },
+    {
+      "id": "next-15",
+      "kind": "next",
+      "text": "let me know if ",
+      "targets": [
+        "you",
+        "there"
+      ]
+    },
+    {
+      "id": "next-16",
+      "kind": "next",
+      "text": "I am interested in ",
+      "targets": [
+        "the",
+        "your",
+        "it",
+        "this"
+      ]
+    },
+    {
+      "id": "next-17",
+      "kind": "next",
+      "text": "I will call you ",
+      "targets": [
+        "later",
+        "tomorrow",
+        "back"
+      ]
+    },
+    {
+      "id": "next-18",
+      "kind": "next",
+      "text": "what do you ",
+      "targets": [
+        "think",
+        "mean",
+        "want",
+        "do"
+      ]
+    },
+    {
+      "id": "next-19",
+      "kind": "next",
+      "text": "do you want to ",
+      "targets": [
+        "go",
+        "come",
+        "know",
+        "see"
+      ]
+    },
+    {
+      "id": "next-20",
+      "kind": "next",
+      "text": "I am going to ",
+      "targets": [
+        "be",
+        "get",
+        "go",
+        "see",
+        "have"
+      ]
+    },
+    {
+      "id": "next-21",
+      "kind": "next",
+      "text": "happy ",
+      "targets": [
+        "birthday",
+        "new",
+        "to"
+      ]
+    },
+    {
+      "id": "next-22",
+      "kind": "next",
+      "text": "happy birthday ",
+      "targets": [
+        "to",
+        "and"
+      ]
+    },
+    {
+      "id": "next-23",
+      "kind": "next",
+      "text": "nice to meet ",
+      "targets": [
+        "you"
+      ]
+    },
+    {
+      "id": "next-24",
+      "kind": "next",
+      "text": "it was nice to ",
+      "targets": [
+        "meet",
+        "see",
+        "hear"
+      ]
+    },
+    {
+      "id": "next-25",
+      "kind": "next",
+      "text": "I am sorry ",
+      "targets": [
+        "for",
+        "to",
+        "but",
+        "about"
+      ]
+    },
+    {
+      "id": "next-26",
+      "kind": "next",
+      "text": "sorry for the ",
+      "targets": [
+        "late",
+        "delay",
+        "inconvenience"
+      ]
+    },
+    {
+      "id": "next-27",
+      "kind": "next",
+      "text": "thanks for your ",
+      "targets": [
+        "help",
+        "time",
+        "reply",
+        "support"
+      ]
+    },
+    {
+      "id": "next-28",
+      "kind": "next",
+      "text": "let us ",
+      "targets": [
+        "know",
+        "go",
+        "see",
+        "meet"
+      ]
+    },
+    {
+      "id": "next-29",
+      "kind": "next",
+      "text": "what is your ",
+      "targets": [
+        "name",
+        "email",
+        "address",
+        "number"
+      ]
+    },
+    {
+      "id": "next-30",
+      "kind": "next",
+      "text": "can you help ",
+      "targets": [
+        "me",
+        "us"
+      ]
+    },
+    {
+      "id": "next-31",
+      "kind": "next",
+      "text": "we need to ",
+      "targets": [
+        "get",
+        "go",
+        "be",
+        "do",
+        "talk"
+      ]
+    },
+    {
+      "id": "next-32",
+      "kind": "next",
+      "text": "I think it is ",
+      "targets": [
+        "a",
+        "the",
+        "good",
+        "very",
+        "not"
+      ]
+    },
+    {
+      "id": "next-33",
+      "kind": "next",
+      "text": "at the end of the ",
+      "targets": [
+        "day",
+        "week",
+        "month",
+        "year"
+      ]
+    },
+    {
+      "id": "next-34",
+      "kind": "next",
+      "text": "on my way ",
+      "targets": [
+        "to",
+        "home",
+        "back"
+      ]
+    },
+    {
+      "id": "next-35",
+      "kind": "next",
+      "text": "I have a ",
+      "targets": [
+        "question",
+        "lot",
+        "few",
+        "new"
+      ]
+    },
+    {
+      "id": "next-36",
+      "kind": "next",
+      "text": "please send me ",
+      "targets": [
+        "the",
+        "your",
+        "a",
+        "an"
+      ]
+    },
+    {
+      "id": "next-37",
+      "kind": "next",
+      "text": "are you free ",
+      "targets": [
+        "today",
+        "tomorrow",
+        "tonight",
+        "this"
+      ]
+    },
+    {
+      "id": "next-38",
+      "kind": "next",
+      "text": "talk to you ",
+      "targets": [
+        "later",
+        "soon",
+        "tomorrow"
+      ]
+    },
+    {
+      "id": "next-39",
+      "kind": "next",
+      "text": "I do not ",
+      "targets": [
+        "know",
+        "want",
+        "think",
+        "have"
+      ]
+    },
+    {
+      "id": "next-40",
+      "kind": "next",
+      "text": "welcome ",
+      "targets": [
+        "to",
+        "back",
+        "home"
+      ]
+    },
+    {
+      "id": "completion-01",
+      "kind": "completion",
+      "text": "congrat",
+      "targets": [
+        "congratulations"
+      ]
+    },
+    {
+      "id": "completion-02",
+      "kind": "completion",
+      "text": "unbeliev",
+      "targets": [
+        "unbelievable"
+      ]
+    },
+    {
+      "id": "completion-03",
+      "kind": "completion",
+      "text": "sched",
+      "targets": [
+        "schedule",
+        "scheduled",
+        "scheduling"
+      ]
+    },
+    {
+      "id": "completion-04",
+      "kind": "completion",
+      "text": "I apprec",
+      "targets": [
+        "appreciate",
+        "appreciated"
+      ]
+    },
+    {
+      "id": "completion-05",
+      "kind": "completion",
+      "text": "good morn",
+      "targets": [
+        "morning"
+      ]
+    },
+    {
+      "id": "completion-06",
+      "kind": "completion",
+      "text": "please conf",
+      "targets": [
+        "confirm",
+        "conference",
+        "confirmed"
+      ]
+    },
+    {
+      "id": "completion-07",
+      "kind": "completion",
+      "text": "thank y",
+      "targets": [
+        "you"
+      ]
+    },
+    {
+      "id": "completion-08",
+      "kind": "completion",
+      "text": "see you tom",
+      "targets": [
+        "tomorrow"
+      ]
+    },
+    {
+      "id": "completion-09",
+      "kind": "completion",
+      "text": "have a nice wee",
+      "targets": [
+        "weekend",
+        "week"
+      ]
+    },
+    {
+      "id": "completion-10",
+      "kind": "completion",
+      "text": "look forw",
+      "targets": [
+        "forward"
+      ]
+    },
+    {
+      "id": "completion-11",
+      "kind": "completion",
+      "text": "hello every",
+      "targets": [
+        "everyone",
+        "everybody"
+      ]
+    },
+    {
+      "id": "completion-12",
+      "kind": "completion",
+      "text": "underst",
+      "targets": [
+        "understand",
+        "understood"
+      ]
+    },
+    {
+      "id": "completion-13",
+      "kind": "completion",
+      "text": "inform",
+      "targets": [
+        "information",
+        "informed",
+        "inform"
+      ]
+    },
+    {
+      "id": "completion-14",
+      "kind": "completion",
+      "text": "impor",
+      "targets": [
+        "important",
+        "importance"
+      ]
+    },
+    {
+      "id": "completion-15",
+      "kind": "completion",
+      "text": "probab",
+      "targets": [
+        "probably",
+        "probable"
+      ]
+    },
+    {
+      "id": "completion-16",
+      "kind": "completion",
+      "text": "thank you for your supp",
+      "targets": [
+        "support"
+      ]
+    },
+    {
+      "id": "completion-17",
+      "kind": "completion",
+      "text": "let me kn",
+      "targets": [
+        "know"
+      ]
+    },
+    {
+      "id": "completion-18",
+      "kind": "completion",
+      "text": "at the beginn",
+      "targets": [
+        "beginning"
+      ]
+    },
+    {
+      "id": "completion-19",
+      "kind": "completion",
+      "text": "I will resp",
+      "targets": [
+        "respond",
+        "response"
+      ]
+    },
+    {
+      "id": "completion-20",
+      "kind": "completion",
+      "text": "I am avail",
+      "targets": [
+        "available"
+      ]
+    },
+    {
+      "id": "edge-01",
+      "kind": "edge",
+      "text": "",
+      "targets": []
+    },
+    {
+      "id": "edge-02",
+      "kind": "edge",
+      "text": "a",
+      "targets": []
+    },
+    {
+      "id": "edge-03",
+      "kind": "edge",
+      "text": "123 ",
+      "targets": []
+    },
+    {
+      "id": "edge-04",
+      "kind": "edge",
+      "text": "12:30 ",
+      "targets": []
+    },
+    {
+      "id": "edge-05",
+      "kind": "edge",
+      "text": "hello. ",
+      "targets": []
+    },
+    {
+      "id": "edge-06",
+      "kind": "edge",
+      "text": "hello\n",
+      "targets": []
+    },
+    {
+      "id": "edge-07",
+      "kind": "edge",
+      "text": "Hello, ",
+      "targets": []
+    },
+    {
+      "id": "edge-08",
+      "kind": "edge",
+      "text": "hello! ",
+      "targets": []
+    },
+    {
+      "id": "edge-09",
+      "kind": "edge",
+      "text": "xqznotawordprefix",
+      "targets": []
+    },
+    {
+      "id": "edge-10",
+      "kind": "edge",
+      "text": "I’m ",
+      "targets": []
+    },
+    {
+      "id": "edge-11",
+      "kind": "edge",
+      "text": "I don’t ",
+      "targets": []
+    },
+    {
+      "id": "edge-12",
+      "kind": "edge",
+      "text": "API v2 ",
+      "targets": []
+    },
+    {
+      "id": "edge-13",
+      "kind": "edge",
+      "text": "😀 ",
+      "targets": []
+    },
+    {
+      "id": "edge-14",
+      "kind": "edge",
+      "text": "email@example.com ",
+      "targets": []
+    },
+    {
+      "id": "edge-15",
+      "kind": "edge",
+      "text": "中国",
+      "targets": []
+    },
+    {
+      "id": "edge-16",
+      "kind": "edge",
+      "text": "hello 中文 ",
+      "targets": []
+    }
+  ]
+}

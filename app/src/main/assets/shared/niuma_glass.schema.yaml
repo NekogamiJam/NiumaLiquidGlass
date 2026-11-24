@@ -1,0 +1,127 @@
+# SPDX-License-Identifier: GPL-3.0-or-later
+# Android-only baseline; the user's desktop schema is never modified.
+schema:
+  schema_id: niuma_glass
+  name: 牛码·固定序
+  version: "0.1.0-dev"
+  author: Local customization
+  description: 两份原始牛码表；保持固定词序，显示未输入的编码后缀，关闭调频和造句
+
+switches:
+  - name: ascii_mode
+    reset: 0
+    states: [中, EN]
+  - name: full_shape
+    reset: 0
+    states: [半角, 全角]
+  - name: ascii_punct
+    reset: 0
+    states: [中文标点, 英文标点]
+
+engine:
+  processors:
+    - ascii_composer
+    - lua_processor@*niuma_fourcode
+    - recognizer
+    - key_binder
+    - speller
+    - punctuator
+    - selector
+    - navigator
+    - express_editor
+  segmentors:
+    - ascii_segmentor
+    - matcher
+    - abc_segmentor
+    - punct_segmentor
+    - fallback_segmentor
+  translators:
+    - punct_translator
+    - table_translator
+
+ascii_composer:
+  switch_key:
+    Shift_L: noop
+    Shift_R: noop
+    Control_L: noop
+    Control_R: noop
+
+speller:
+  alphabet: abcdefghijklmnopqrstuvwxyz
+  max_code_length: 5
+  # Keep existing unique four-code auto-selection for a..y; the Lua processor
+  # handles fifth-key rollover for exact four-letter codes in both partitions.
+  auto_select: true
+  auto_select_pattern: '^[a-y][a-z]{3}$'
+  auto_clear: false
+
+translator:
+  dictionary: niumawb
+  initial_quality: 10000
+  enable_user_dict: false
+  enable_sentence: false
+  enable_encoder: false
+  encode_commit_history: false
+  enable_completion: true
+  # librime comments completions as ~<remaining code>; show only the suffix.
+  comment_format:
+    - 'xform/^~([a-z]+)$/$1/'
+  enable_charset_filter: false
+  db_class: tabledb
+
+menu:
+  page_size: 9
+
+punctuator:
+  import_preset: default
+  # Keep native numeric-context recognition, but commit '.' / ':' immediately.
+  digit_separator_action: commit
+# The preset default binding set, re-declared in full WITHOUT its
+#   { when: has_menu, accept: period, send: Page_Down }
+# item. That preset binding makes key_binder swallow '.' every time a
+# candidate menu is open, so with valid code letters and candidates
+# pressing '.' does nothing (it only paged the menu). Without it, '.'
+# reaches the punctuator exactly like ',' does: the top candidate commits
+# together with the period punctuation. All other preset groups are kept
+# verbatim, so editing, paging-with-minus/equal, comma paging and the
+# numbered mode switches are unchanged.
+key_binder:
+  bindings:
+    # key_bindings:/emacs_editing
+    - { when: composing, accept: Control+p, send: Up }
+    - { when: composing, accept: Control+n, send: Down }
+    - { when: composing, accept: Control+b, send: Left }
+    - { when: composing, accept: Control+f, send: Right }
+    - { when: composing, accept: Control+a, send: Home }
+    - { when: composing, accept: Control+e, send: End }
+    - { when: composing, accept: Control+d, send: Delete }
+    - { when: composing, accept: Control+k, send: Shift+Delete }
+    - { when: composing, accept: Control+h, send: BackSpace }
+    - { when: composing, accept: Control+g, send: Escape }
+    - { when: composing, accept: Control+bracketleft, send: Escape }
+    - { when: composing, accept: Control+y, send: Page_Up }
+    - { when: composing, accept: Alt+v, send: Page_Up }
+    - { when: composing, accept: Control+v, send: Page_Down }
+    # key_bindings:/move_by_word_with_tab
+    - { when: composing, accept: ISO_Left_Tab, send: Shift+Left }
+    - { when: composing, accept: Shift+Tab, send: Shift+Left }
+    - { when: composing, accept: Tab, send: Shift+Right }
+    # key_bindings:/paging_with_minus_equal
+    - { when: has_menu, accept: minus, send: Page_Up }
+    - { when: has_menu, accept: equal, send: Page_Down }
+    # key_bindings:/paging_with_comma_period, minus the period item:
+    # '.' must fall through to the punctuator, not page the candidate menu.
+    - { when: paging, accept: comma, send: Page_Up }
+    # key_bindings:/numbered_mode_switch
+    - { when: always, accept: Control+Shift+1, select: .next }
+    - { when: always, accept: Control+Shift+2, toggle: ascii_mode }
+    - { when: always, accept: Control+Shift+3, toggle: full_shape }
+    - { when: always, accept: Control+Shift+4, toggle: simplification }
+    - { when: always, accept: Control+Shift+5, toggle: extended_charset }
+    - { when: always, accept: Control+Shift+exclam, select: .next }
+    - { when: always, accept: Control+Shift+at, toggle: ascii_mode }
+    - { when: always, accept: Control+Shift+numbersign, toggle: full_shape }
+    - { when: always, accept: Control+Shift+dollar, toggle: simplification }
+    - { when: always, accept: Control+Shift+percent, toggle: extended_charset }
+recognizer:
+  import_preset: default

@@ -1,0 +1,27 @@
+## File header must not be modified
+## This file must be encoded into UTF-8.
+---
+name: niumawb
+version: 20230112
+use_preset_vocabulary: false
+sort: original
+encoder:
+  rules:
+    - length_equal: 2
+      formula: "AaAbBaBb"
+    - length_equal: 3
+      formula: "AaBaCaCb"
+    - length_in_range: [4, 20]
+      formula: "AaBaCaZa"
+  exclude_patterns:
+    - '^z.*$'
+columns:
+  - text
+  - code
+  - weight
+  - stem
+import_tables:
+  - niumawb_zc
+  - niumawb_fh
+...
+

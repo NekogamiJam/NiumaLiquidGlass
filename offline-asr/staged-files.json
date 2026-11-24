@@ -1,0 +1,13 @@
+{
+  "files": {
+    "app/src/main/assets/offline-asr/THIRD-PARTY-NOTICES.md": "9ad2495090ed345cabf81b6812700ec1a5f2ff80574c73e6eedd30ed11c86e46",
+    "app/src/main/assets/offline-asr/models.json": "450e26fc54ad26b904601856820f2efef76c01e1dbcd23078bdc1ea0180b6895",
+    "app/src/main/assets/offline-asr/sensevoice.int8.onnx": "c71f0ce00bec95b07744e116345e33d8cbbe08cef896382cf907bf4b51a2cd51",
+    "app/src/main/assets/offline-asr/silero_vad.onnx": "9e2449e1087496d8d4caba907f23e0bd3f78d91fa552479bb9c23ac09cbb1fd6",
+    "app/src/main/assets/offline-asr/tokens.txt": "f449eb28dc567533d7fa59be34e2abca8784f771850c78a47fb731a31429a1dc",
+    "app/src/main/jniLibs/arm64-v8a/libniuma_offline_asr.so": "efe97e0a6ea39f7a301b2f1b5f48c782afe0c19e69ea64e9e0609a0d69cf5517",
+    "app/src/main/jniLibs/arm64-v8a/libonnxruntime.so": "c7c0e6b0f9c364a4df4bfc9a3a3576b691899e96f4d9beb60f3b3a7ce4bf572c",
+    "app/src/main/jniLibs/arm64-v8a/libsherpa-onnx-c-api.so": "49d5e329408a6c93040d2ab76e86db4fd438f243c5f87e575870897fa6249948"
+  },
+  "format": 1
+}

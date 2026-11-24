@@ -13,9 +13,11 @@ import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.view.isVisible
 import com.osfans.trime.core.CandidateProto
 import com.osfans.trime.data.theme.Theme
+import com.osfans.trime.data.theme.ThemeManager
 import com.osfans.trime.data.theme.ThemeScope
 import com.osfans.trime.data.theme.model.GeneralStyle
 import com.osfans.trime.ime.core.AutoScaleTextView
+import com.osfans.trime.ime.glass.LiquidGlassStyle
 import com.osfans.trime.ime.keyboard.GestureFrame
 import com.osfans.trime.util.roundedRippleDrawable
 import splitties.dimensions.dp
@@ -166,9 +168,29 @@ class CandidateItemUi(
         val tColor = if (highlighted) hlTextColor else textColor
         val cColor = if (highlighted) hlCommentColor else commentColor
         val cornerRadius = ctx.dp(theme.style.candidateCornerRadius)
-        val contentColor = if (highlighted) hlBackColor else Color.TRANSPARENT
+        val isLiquidGlass =
+            ThemeManager.prefs.selectedTheme.getValue() == LiquidGlassStyle.CONFIG_ID
+        val contentColor =
+            if (isLiquidGlass) {
+                Color.TRANSPARENT
+            } else if (highlighted) {
+                hlBackColor
+            } else {
+                Color.TRANSPARENT
+            }
+        val rippleColor =
+            if (isLiquidGlass) {
+                Color.argb(
+                    0x30,
+                    Color.red(hlBackColor),
+                    Color.green(hlBackColor),
+                    Color.blue(hlBackColor),
+                )
+            } else {
+                hlBackColor
+            }
 
-        content.background = roundedRippleDrawable(hlBackColor, cornerRadius, contentColor)
+        content.background = roundedRippleDrawable(rippleColor, cornerRadius, contentColor)
         text.text = item.text
         text.setTextColor(tColor)
 

@@ -241,6 +241,12 @@ class Rime :
 
     override suspend fun commitComposition(): Boolean = withRimeContext { commitRimeComposition().also { if (it) emitResponse() } }
 
+    override suspend fun commitLiteralAfterComposition(text: String, stillCurrent: () -> Boolean): Unit = withRimeContext {
+        if (!stillCurrent()) return@withRimeContext
+        if (getRimeStatus().isComposing && !commitRimeComposition()) return@withRimeContext
+        emitResponse(appendLiteral = text)
+    }
+
     override suspend fun clearComposition() = withRimeContext {
         clearRimeComposition()
         emitResponse()
@@ -320,9 +326,10 @@ class Rime :
         else -> ""
     }
 
-    private fun emitResponse(commit: CommitProto? = null) {
+    private fun emitResponse(commit: CommitProto? = null, appendLiteral: String? = null) {
         val response = getRimeResponse(pagingMode)
-        handleRimeMessage(4, arrayOf(commit ?: response.commit))
+        val pendingCommit = commit ?: response.commit
+        handleRimeMessage(4, arrayOf(if (appendLiteral == null) pendingCommit else CommitProto(pendingCommit.text.orEmpty() + appendLiteral)))
         handlePreedit(response.composition)
         if (response.composition.length <= 0 && lastAsciiTipsText != asciiTipsText(response.status)) {
             showAsciiSwitchTips(response.status)
@@ -595,7 +602,7 @@ class Rime :
             params: Array<Any>,
         ) {
             val message = RimeMessage.nativeCreate(type, params)
-            Timber.d("Handling $message")
+            Timber.d("Handling %s", message.javaClass.simpleName) // Never log commit/preedit payloads.
             rimeMessageHandlers.forEach { it.invoke(message) }
             messageFlow_.tryEmit(message)
         }

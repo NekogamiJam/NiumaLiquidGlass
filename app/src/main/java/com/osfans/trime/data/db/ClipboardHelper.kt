@@ -98,7 +98,7 @@ object ClipboardHelper :
     }
 
     fun init(context: Context) {
-        clipboardManager.addPrimaryClipChangedListener(this)
+        // Registration below is opt-in; do not briefly subscribe before reading the preference.
         clbDb =
             Room
                 .databaseBuilder(context, Database::class.java, "clipboard.db")
@@ -158,6 +158,8 @@ object ClipboardHelper :
      * - [outputRules] 输出规则。如果剪贴板内容与规则匹配，则不通知剪贴板管理器。
      */
     override fun onPrimaryClipChanged() {
+        // A callback already queued before opt-out must not read the global clipboard.
+        if (!enabledPref.getValue()) return
         val clip = clipboardManager.primaryClip ?: return
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             val timestamp = clip.description.timestamp
@@ -172,6 +174,7 @@ object ClipboardHelper :
         }
         launch {
             mutex.withLock {
+                if (!enabledPref.getValue()) return@withLock
                 val bean = DatabaseBean.fromClipData(clip) ?: return@withLock
                 if (bean.text.isNullOrBlank()) return@withLock
                 if (bean.text.matchesAny(outputRules) ||
